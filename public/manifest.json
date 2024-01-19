@@ -1,0 +1,17 @@
+{
+  "theme_color": "#66ccff",
+  "background_color": "#66ccff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Streamsora",
+  "short_name": "Streamsora",
+  "description": "Watch and Read your favorite Anime/Manga in one single app",
+  "icons": [
+    {
+      "src": "/streamsora.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
