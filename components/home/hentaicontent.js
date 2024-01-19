@@ -79,7 +79,7 @@ export default function HentaiContent({ section }) {
         >
           {data.map((item) => (
             <div key={item.id} className="flex flex-col gap-3 shrink-0 cursor-pointer">
-              <Link legacyBehavior href={`/en/hanime/watch/${item.id}`}>
+              <Link legacyBehavior href={`/en/hanime/video/${item.id}`}>
                 <a className="flex flex-col gap-3 shrink-0">
                   <div className="h-[190px] w-[135px] lg:h-[265px] lg:w-[185px] rounded-md z-30">
                     <Image
