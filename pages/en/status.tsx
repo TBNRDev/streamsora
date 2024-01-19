@@ -23,6 +23,7 @@ export default function Status() {
     { url: 'https://streamsora.live', altName: 'Website' },
     { url: 'https://scrape.streamsora.live', altName: 'Scraper' },
     { url: 'https://hanime-api-five.vercel.app', altName: 'Hanime API' },
+    { url: 'https://image-proxy-zeta.vercel.app', altName: 'Image Proxy' },
     // Add more servers as needed
   ];
 
