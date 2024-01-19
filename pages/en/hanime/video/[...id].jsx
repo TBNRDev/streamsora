@@ -6,8 +6,7 @@ import '@vidstack/react/player/styles/default/theme.css';
 import '@vidstack/react/player/styles/default/layouts/video.css';
 import Image from "next/image";
 import { FlagIcon, ShareIcon, Flaglink } from "@heroicons/react/24/solid";
-import _debounce from 'lodash.debounce';
-import { NewNavbar } from "@/components/shared/NavBar";
+import { Navbar } from "@/components/shared/NavBar";
 import MobileNav from "@/components/shared/MobileNav"; // Import lodash debounce
 
 export default function WatchPage({ video }) {
@@ -50,7 +49,7 @@ export default function WatchPage({ video }) {
 
   return (
       <div className="flex flex-col lg:flex-row items-center p-8 lg:p-20">
-        <NewNavbar
+        <Navbar
             scrollP={20}
             withNav={true}
             shrink={true}
