@@ -12,7 +12,7 @@ export default function Dmca() {
         <meta property="og:title" content="Dmca" />
         <meta
           property="og:description"
-          content="Moopa.live is committed to respecting the intellectual
+          content="Streamsora.live is committed to respecting the intellectual
                   property rights of others and complying with the Digital
                   Millennium Copyright Act (DMCA)."
         />

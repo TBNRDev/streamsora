@@ -169,7 +169,7 @@ export default function MyList({
               <div className="flex p-2 items-center justify-between">
                 <h2
                   className="text-sm text-white/70"
-                  title="Disabling this will stop adding your Anime to 'Watched using Moopa' list."
+                  title="Disabling this will stop adding your Anime to 'Watched using Streamsora' list."
                 >
                   Custom Lists
                 </h2>
