@@ -33,11 +33,6 @@ export async function getServerSideProps(context) {
     };
   }
 
-  let proxy;
-  proxy = process.env.PROXY_URI || null;
-  if (proxy && proxy.endsWith("/")) {
-    proxy = proxy.slice(0, -1);
-  }
   const disqus = process.env.DISQUS_SHORTNAME || null;
 
   const [aniId, provider] = query?.info;
@@ -138,7 +133,6 @@ export async function getServerSideProps(context) {
       dub: dub || null,
       userData: userData?.[0] || null,
       info: data?.data?.Media || null,
-      proxy,
       disqus
     }
   };
@@ -148,7 +142,6 @@ export default function Watch({
                                 info,
                                 watchId,
                                 disqus,
-                                proxy,
                                 dub,
                                 userData,
                                 sessions,
@@ -335,7 +328,7 @@ export default function Watch({
 
         const reFormSubtitles = anify?.subtitles?.map((i) => {
           return {
-            src: proxy + "/" + i.url,
+            src: "/" + i.url,
             label: i.lang,
             kind: i.lang === "Thumbnails" ? "thumbnails" : "subtitles",
             ...(i.lang === "English" && { default: true })
@@ -354,10 +347,7 @@ export default function Watch({
           provider,
           isDub: dub,
           defaultQuality: {
-            // url: quality?.url,
-            url: `${proxy}/proxy/m3u8/${encodeURIComponent(
-              String(quality?.url)
-            )}/${encodeURIComponent(JSON.stringify(anify?.headers))}`,
+             url: quality?.url,
             headers: anify?.headers
           },
           subtitles: subtitles,
