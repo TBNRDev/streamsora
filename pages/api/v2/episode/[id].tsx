@@ -4,7 +4,7 @@ import axios from "axios";
 import { rateLimiterRedis, rateSuperStrict, redis } from "@/lib/redis";
 import appendMetaToEpisodes from "@/utils/appendMetaToEpisodes";
 import { NextApiRequest, NextApiResponse } from "next";
-import { AnifyEpisode, ConsumetInfo, EpisodeData } from "types";
+import { ConsumetInfo, EpisodeData } from "types";
 import { Episode } from "@/types/api/Episode";
 import { getProviderWithMostEpisodesAndImage } from "@/utils/parseMetaData";
 
@@ -43,9 +43,9 @@ function filterData(data: RawEpisodeData[], type: "sub" | "dub") {
         return {
           ...item,
           episodes: Object?.entries(item.episodes[type]).map(
-            ([id, episode]) => ({
-              ...episode
-            })
+              ([id, episode]) => ({
+                ...episode
+              })
           )
         };
       }
@@ -60,7 +60,7 @@ async function fetchConsumet(id?: string | string[] | undefined) {
   try {
     const fetchData = async (dub?: any) => {
       const { data } = await axios.get<ConsumetInfo>(
-        `${CONSUMET_URI}/meta/anilist/episodes/${id}${dub ? "?dub=true" : ""}`
+          `${CONSUMET_URI}/meta/anilist/episodes/${id}${dub ? "?dub=true" : ""}`
       );
       if (data?.message === "Anime not found" && data?.length < 1) {
         return [];
@@ -113,25 +113,6 @@ async function fetchConsumet(id?: string | string[] | undefined) {
   }
 }
 
-async function fetchAnify(id?: string) {
-  try {
-    const { data } = await axios.get<AnifyEpisode[]>(
-      `https://api.anify.tv/episodes/${id}`
-    );
-
-    if (!data) {
-      return [];
-    }
-
-    return data.filter(
-      (item) => item.providerId !== "9anime" && item.providerId !== "kass"
-    );
-  } catch (error: any) {
-    console.error("Error fetching and processing data:", error.message);
-    return [];
-  }
-}
-
 async function fetchCoverImage(id: string, available = false) {
   try {
     if (available) {
@@ -139,7 +120,7 @@ async function fetchCoverImage(id: string, available = false) {
     }
 
     const { data } = await axios.get(
-      `https://api.anify.tv/content-metadata/${id}`
+        `https://api.anify.tv/content-metadata/${id}`
     );
 
     if (!data) {
@@ -157,8 +138,8 @@ async function fetchCoverImage(id: string, available = false) {
 }
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
+    req: NextApiRequest,
+    res: NextApiResponse
 ) {
   const { id, releasing = "false", dub = false, refresh = null } = req.query;
 
@@ -178,16 +159,16 @@ export default async function handler(
     try {
       const ipAddress: any = req.socket.remoteAddress;
       refresh
-        ? await rateSuperStrict.consume(ipAddress)
-        : await rateLimiterRedis.consume(ipAddress);
+          ? await rateSuperStrict.consume(ipAddress)
+          : await rateLimiterRedis.consume(ipAddress);
 
       headers = refresh
-        ? await rateSuperStrict.get(ipAddress)
-        : await rateLimiterRedis.get(ipAddress);
+          ? await rateSuperStrict.get(ipAddress)
+          : await rateLimiterRedis.get(ipAddress);
     } catch (error: any) {
       return res.status(429).json({
         error: `Too Many Requests, retry after ${getTimeFromMs(
-          error.msBeforeNext
+            error.msBeforeNext
         )}`,
         remaining: error.remainingPoints
       });
@@ -217,7 +198,7 @@ export default async function handler(
       const filteredData: EpisodeData[] = filterData(JSON.parse(cached), "dub");
 
       let filtered = filteredData.filter((item) =>
-        item?.episodes?.some((epi) => epi.hasDub !== false)
+          item?.episodes?.some((epi) => epi.hasDub !== false)
       );
 
       if (meta) {
@@ -228,8 +209,8 @@ export default async function handler(
       res.setHeader("X-RateLimit-BeforeReset", headers.msBeforeNext);
 
       return res
-        .status(200)
-        .json(filtered?.filter((i) => i?.providerId !== "zoro"));
+          .status(200)
+          .json(filtered?.filter((i) => i?.providerId !== "zoro"));
     } else {
       const filteredData = filterData(JSON.parse(cached), "sub");
 
@@ -243,13 +224,12 @@ export default async function handler(
       res.setHeader("X-RateLimit-BeforeReset", headers.msBeforeNext);
 
       return res
-        .status(200)
-        .send(filtered?.filter((i) => i?.providerId !== "9anime"));
+          .status(200)
+          .send(filtered?.filter((i) => i?.providerId !== "9anime"));
     }
   } else {
-    const [consumet, anify, cover] = await Promise.all([
+    const [consumet, cover] = await Promise.all([
       fetchConsumet(id),
-      fetchAnify(id),
       fetchCoverImage(id, meta)
     ]);
 
@@ -258,7 +238,7 @@ export default async function handler(
       subDub = "dub";
     }
 
-    const rawData = [...consumet, ...anify];
+    const rawData = [...consumet];
 
     const filteredData = filterData(rawData, subDub);
 
@@ -267,9 +247,9 @@ export default async function handler(
     if (meta) {
       data = await appendMetaToEpisodes(filteredData, JSON.parse(meta));
     } else if (
-      cover &&
-      // !cover?.some((item: { img: null }) => item.img === null) &&
-      cover?.length > 0
+        cover &&
+        // !cover?.some((item: { img: null }) => item.img === null) &&
+        cover?.length > 0
     ) {
       if (redis)
         await redis.set(`meta:${id}`, JSON.stringify(cover), "EX", cacheTime);
@@ -278,20 +258,20 @@ export default async function handler(
 
     if (redis && cacheTime !== null && rawData?.length > 0) {
       await redis.set(
-        `episode:${id}`,
-        JSON.stringify(rawData),
-        "EX",
-        cacheTime
+          `episode:${id}`,
+          JSON.stringify(rawData),
+          "EX",
+          cacheTime
       );
     }
 
     if (dub) {
       const filtered = data.filter(
-        (item) => !item.episodes.some((epi) => epi.hasDub === false)
+          (item) => !item.episodes.some((epi) => epi.hasDub === false)
       );
       return res
-        .status(200)
-        .json(filtered.filter((i) => i.episodes.length > 0));
+          .status(200)
+          .json(filtered.filter((i) => i.episodes.length > 0));
     }
 
     if (redis) {
