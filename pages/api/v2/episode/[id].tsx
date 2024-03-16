@@ -4,7 +4,7 @@ import axios from "axios";
 import { rateLimiterRedis, rateSuperStrict, redis } from "@/lib/redis";
 import appendMetaToEpisodes from "@/utils/appendMetaToEpisodes";
 import { NextApiRequest, NextApiResponse } from "next";
-import { ConsumetInfo, EpisodeData } from "types";
+import { AnifyEpisode, ConsumetInfo, EpisodeData } from "types";
 import { Episode } from "@/types/api/Episode";
 import { getProviderWithMostEpisodesAndImage } from "@/utils/parseMetaData";
 
@@ -107,6 +107,25 @@ async function fetchConsumet(id?: string | string[] | undefined) {
     ];
 
     return array;
+  } catch (error: any) {
+    console.error("Error fetching and processing data:", error.message);
+    return [];
+  }
+}
+
+async function fetchAnify(id?: string) {
+  try {
+    const { data } = await axios.get<AnifyEpisode[]>(
+        `https://api.anify.tv/episodes/${id}`
+    );
+
+    if (!data) {
+      return [];
+    }
+
+    return data.filter(
+        (item) => item.providerId !== "9anime" && item.providerId !== "kass"
+    );
   } catch (error: any) {
     console.error("Error fetching and processing data:", error.message);
     return [];
@@ -228,8 +247,9 @@ export default async function handler(
           .send(filtered?.filter((i) => i?.providerId !== "9anime"));
     }
   } else {
-    const [consumet, cover] = await Promise.all([
+    const [consumet, anify, cover] = await Promise.all([
       fetchConsumet(id),
+      fetchAnify(id),
       fetchCoverImage(id, meta)
     ]);
 
@@ -238,7 +258,7 @@ export default async function handler(
       subDub = "dub";
     }
 
-    const rawData = [...consumet];
+    const rawData = [...consumet, ...anify];
 
     const filteredData = filterData(rawData, subDub);
 
