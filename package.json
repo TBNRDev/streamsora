@@ -15,8 +15,6 @@
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.17",
     "@prisma/client": "^5.3.1",
-    "@radix-ui/react-alert-dialog": "^1.0.5",
-    "@radix-ui/react-slot": "^1.0.2",
     "@vercel/og": "^0.5.4",
     "@vidstack/react": "^1.9.8",
     "axios": "^1.4.0",
@@ -45,7 +43,7 @@
     "react-use-draggable-scroll": "^0.4.7",
     "sharp": "^0.32.6",
     "sonner": "^1.0.3",
-    "tailwind-merge": "^2.2.0",
+    "tailwind-merge": "^2.2.2",
     "tailwind-scrollbar-hide": "^1.1.7",
     "workbox-webpack-plugin": "^7.0.0"
   },

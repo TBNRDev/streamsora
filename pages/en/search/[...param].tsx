@@ -16,7 +16,7 @@ import {
   genreOptions,
   mangaFormatOptions,
   mediaType,
-  seasonOptions,
+  seasonOptions, sortOptions,
   tagsOption,
   yearOptions,
 } from "@/components/search/selection";
@@ -252,7 +252,7 @@ export default function Card({
         <title>Streamsora - search</title>
         <meta name="title" content="Search" />
         <meta name="description" content="Search your favourites Anime/Manga" />
-        <link rel="icon" href="/svg/c.svg" />
+        <link rel="icon" href="/streamsora.png" />
       </Head>
 
       <Navbar
@@ -286,12 +286,12 @@ export default function Card({
                 inputRef={inputRef}
               />
               {/* SORT */}
-              {/* <SingleSelector
+               <SingleSelector
                 data={sortOptions}
                 selected={sort}
                 setSelected={setSelectedSort}
                 label="Sort"
-              /> */}
+              />
               {/* FORMAT */}
               <SingleSelector
                 data={index === 0 ? animeFormatOptions : mangaFormatOptions}

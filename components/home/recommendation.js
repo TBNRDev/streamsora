@@ -51,7 +51,7 @@ export default function UserRecommendation({ data }) {
           />
           <Link
             href={`/en/${data[0].type.toLowerCase()}/${data[0].id}`}
-            className="border border-white/70 py-1 px-2 lg:py-2 lg:px-4 rounded-full flex items-center gap-2 text-white font-bold"
+            className="border border-white/70 py-1 px-2 lg:py-2 lg:px-4 rounded flex items-center gap-2 text-white font-bold"
           >
             {data[0].type === "ANIME" ? (
               <PlayIcon className="w-5 h-5 text-white" />
@@ -63,7 +63,7 @@ export default function UserRecommendation({ data }) {
         </div>
         <div
           id="recommendation-list"
-          className="flex gap-5 overflow-x-scroll scrollbar-none px-5 py-7 lg:py-10"
+          className="flex gap-2 overflow-x-scroll scrollbar-none px-5 py-7 lg:py-10"
           ref={desktopRef}
           {...desktopEvent}
         >
@@ -97,7 +97,8 @@ export default function UserRecommendation({ data }) {
                 alt={i.title.userPreferred}
                 width={190}
                 height={256}
-                className="h-[190px] w-[135px] lg:h-[265px] lg:w-[185px] brightness-[90%] rounded-md object-cover overflow-hidden transition-all duration-150 ease-in-out"
+                quality={100}
+                className="h-[190px] w-[135px] lg:h-[265px] lg:w-[185px] brightness-[90%] rounded object-cover overflow-hidden transition-all duration-150 ease-in-out"
               />
               {/* <span className="absolute rounded pointer-events-none w-[240px] h-[50%] transition-all duration-150 ease-in transform group-hover:translate-x-[80%] top-0 left-0 bg-secondary opacity-0 group-hover:opacity-100 flex flex-col z-50">
                 <div className="">{i.title.userPreferred}</div>
@@ -138,6 +139,7 @@ export default function UserRecommendation({ data }) {
                   alt={i.title.userPreferred}
                   width={190}
                   height={256}
+                  quality={100}
                   className="h-[190px] w-[135px] lg:h-[265px] lg:w-[185px] shrink-0 brightness-[90%] rounded-md object-cover overflow-hidden transition-all duration-150 ease-in-out"
                 />
               </Link>
@@ -170,6 +172,7 @@ export default function UserRecommendation({ data }) {
           alt={data[0].title.userPreferred}
           width={500}
           height={500}
+          quality={100}
           className="hidden lg:block absolute top-0 left-0 z-30 w-[60%] h-full object-cover opacity-30"
         />
       )}

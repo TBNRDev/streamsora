@@ -1,25 +1,25 @@
 import "@vidstack/react/player/styles/base.css";
 
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 
 import style from "./player.module.css";
 
 import {
   MediaPlayer,
-  MediaProvider,
-  useMediaStore,
-  useMediaRemote,
   type MediaPlayerInstance,
+  MediaProvider,
+  MediaTimeUpdateEventDetail,
   Track,
-  MediaTimeUpdateEventDetail
+  useMediaRemote,
+  useMediaStore
 } from "@vidstack/react";
-import { VideoLayout } from "./components/layouts/video-layout";
-import { useWatchProvider } from "@/lib/context/watchPageProvider";
-import { useRouter } from "next/router";
-import { Subtitle } from "types/episodes/TrackData";
+import {VideoLayout} from "./components/layouts/video-layout";
+import {useWatchProvider} from "@/lib/context/watchPageProvider";
+import {useRouter} from "next/router";
+import {Subtitle} from "types/episodes/TrackData";
 import useWatchStorage from "@/lib/hooks/useWatchStorage";
-import { Sessions } from "types/episodes/Sessions";
-import { useAniList } from "@/lib/anilist/useAnilist";
+import {Sessions} from "types/episodes/Sessions";
+import {useAniList} from "@/lib/anilist/useAnilist";
 
 export interface Navigation {
   prev: Prev;
@@ -193,7 +193,7 @@ export default function VidStack({
               provider: track?.provider,
               nextId: navigation?.next?.id,
               nextNumber: Number(navigation?.next?.number),
-              dub: track?.isDub ? true : false
+              dub: !!track?.isDub
             })
           });
         }
@@ -213,7 +213,7 @@ export default function VidStack({
           provider: track?.provider,
           nextId: navigation?.next?.id,
           nextNumber: navigation?.next?.number,
-          dub: track?.isDub ? true : false,
+          dub: !!track?.isDub,
           createdAt: new Date().toISOString()
         });
         // console.log("update");
@@ -435,7 +435,6 @@ export default function VidStack({
         "Loading..."
       }
       load="idle"
-      crossorigin="anonymous"
       src={{
         src: defaultQuality?.url,
         type: "application/vnd.apple.mpegurl"
@@ -474,8 +473,7 @@ export function calculateAspectRatio(width: number, height: number) {
 
   const gcd = (a: number, b: number): any => (b === 0 ? a : gcd(b, a % b));
   const divisor = gcd(width, height);
-  const aspectRatio = `${width / divisor}/${height / divisor}`;
-  return aspectRatio;
+  return `${width / divisor}/${height / divisor}`;
 }
 
 function formatTime(timeInSeconds: number) {

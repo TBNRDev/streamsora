@@ -21,7 +21,7 @@ export default function SingleSelector({ data, label, selected, setSelected }) {
     <Listbox value={selected} onChange={setSelected}>
       <div className="relative mt-1 min-w-full lg:min-w-[160px] w-full">
         <div className="font-bold text-lg mb-2">{label}</div>
-        <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-secondary text-left shadow-md focus:outline-none sm:text-sm">
+        <div className="relative w-full cursor-default overflow-hidden rounded bg-secondary text-left shadow-md focus:outline-none sm:text-sm">
           {/* <Combobox.Input
             className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 bg-secondary text-gray-300 focus:ring-0 outline-none"
             displayValue={(item) => item.name}
@@ -49,7 +49,7 @@ export default function SingleSelector({ data, label, selected, setSelected }) {
           afterLeave={() => setQuery("")}
         >
           <Listbox.Options
-            className="absolute z-50 scrollbar-thin scrollbar-thumb-white/10 scrollbar-thumb-rounded-lg mt-1 max-h-80 w-full overflow-auto rounded-md bg-secondary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            className="absolute z-50 scrollbar-thin scrollbar-thumb-white/10 scrollbar-thumb-rounded-lg mt-1 max-h-80 w-full overflow-auto rounded bg-secondary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
             style={{ scrollbarGutter: "stable" }}
           >
             {filteredData.length === 0 && query !== "" ? (
@@ -61,7 +61,7 @@ export default function SingleSelector({ data, label, selected, setSelected }) {
                 <Listbox.Option
                   key={item.value}
                   className={({ active }) =>
-                    `relative cursor-pointer select-none py-2 px-2 ml-2 mr-1 rounded-md ${
+                    `relative cursor-pointer select-none py-2 px-2 ml-2 mr-1 rounded ${
                       active ? "bg-white/5 text-action" : "text-gray-300"
                     }`
                   }

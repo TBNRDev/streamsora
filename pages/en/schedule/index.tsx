@@ -249,7 +249,7 @@ export default function Schedule({ schedule }: any) {
         <link rel="canonical" href="https://streamsora.live/en/schedule" />
       </Head>
       <MobileNav hideProfile={true} />
-      <Navbar scrollP={10} toTop={true} />
+      <Navbar withNav={true} scrollP={5} shrink={true} detail={false} firstTrend={false} genre={false} populars={false} upComing={false} />
       <div className="w-screen">
         {/* <span className="absolute w-screen h-[190px] lg:h-[250px] bg-white overflow-hidden">
           <div className="w-full h-full bg-white rounded" />

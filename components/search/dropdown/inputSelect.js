@@ -38,7 +38,7 @@ export default function InputSelect({
             />
           </Combobox.Button>
         </div>
-        <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-secondary text-left shadow-md focus:outline-none sm:text-sm">
+        <div className="relative w-full cursor-default overflow-hidden rounded bg-secondary text-left shadow-md focus:outline-none sm:text-sm">
           <input
             type="text"
             value={query || ""}
@@ -62,7 +62,7 @@ export default function InputSelect({
           afterLeave={() => setQuery("")}
         >
           <Combobox.Options
-            className="absolute z-[55] mt-1 max-h-60 w-full rounded-md bg-secondary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            className="absolute z-[55] mt-1 max-h-60 w-full rounded bg-secondary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
             style={{ scrollbarGutter: "stable" }}
           >
             {data.length === 0 && query !== "" ? (

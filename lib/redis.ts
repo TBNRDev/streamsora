@@ -1,5 +1,6 @@
 import { Redis } from "ioredis";
 import { RateLimiterRedis } from "rate-limiter-flexible";
+import { toast } from "sonner"
 
 const REDIS_URL: string | undefined = process.env.REDIS_URL;
 
@@ -41,7 +42,7 @@ if (REDIS_URL) {
   rateLimitStrict = new RateLimiterRedis(optStrict);
   rateSuperStrict = new RateLimiterRedis(optSuperStrict);
 } else {
-  console.warn("REDIS_URL is not defined. Redis caching will be disabled.");
+  toast.warning("REDIS_URL is not defined. Redis caching will be disabled.");
 }
 
 export { redis, rateLimiterRedis, rateLimitStrict, rateSuperStrict };

@@ -83,8 +83,6 @@ export default function Admin({
           />
         )}
         {page == 2 && <AppendMeta api={api} />}
-        {page == 3 && <p className="flex-center h-full">Coming Soon!</p>}
-        {page == 4 && <p className="flex-center h-full">Coming Soon!</p>}
       </div>
     </AdminLayout>
   );

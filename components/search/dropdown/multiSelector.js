@@ -38,7 +38,7 @@ export default function MultiSelector({
     <Combobox value={selected} onChange={setSelected} multiple>
       <div className="relative mt-1 min-w-full lg:min-w-[160px] w-full">
         <div className="font-bold text-lg mb-2">{label}</div>
-        <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-secondary text-left shadow-md focus:outline-none sm:text-sm">
+        <div className="relative w-full cursor-default overflow-hidden rounded bg-secondary text-left shadow-md focus:outline-none sm:text-sm">
           <Combobox.Input
             className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 bg-secondary text-gray-300 focus:ring-0 outline-none"
             displayValue={(item) => item?.map((item) => item?.name).join(", ")}
@@ -63,7 +63,7 @@ export default function MultiSelector({
           afterLeave={() => setQuery("")}
         >
           <Combobox.Options
-            className="absolute z-50 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 scrollbar-thumb-rounded-lg mt-1 max-h-60 w-full overflow-auto rounded-md bg-secondary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            className="absolute z-50 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 scrollbar-thumb-rounded-lg mt-1 max-h-60 w-full overflow-auto rounded bg-secondary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
             // style={{ scrollbarGutter: "stable" }}
           >
             {filteredOther.length === 0 &&
