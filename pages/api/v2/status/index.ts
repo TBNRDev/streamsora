@@ -11,7 +11,11 @@ interface ServerStatus {
     status: string;
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<ServerStatus[]>) {
+interface ErrorResponse {
+    error: string;
+}
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<ServerStatus[] | ErrorResponse>) {
     const servers: Server[] = [
         { url: 'https://api.streamsora.live', altName: 'API' },
         { url: 'https://m3u8.streamsora.live/proxy/m3u8', altName: 'M3U8' },
