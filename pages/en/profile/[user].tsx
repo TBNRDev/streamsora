@@ -81,6 +81,7 @@ export default function MyList({
               src={user.avatar.large}
               alt="user avatar"
               width={1000}
+              quality={100}
               height={1000}
               className="object-cover h-28 w-28 rounded"
             />
@@ -167,39 +168,50 @@ export default function MyList({
             <div className="font-karla flex flex-col gap-4">
               <h1>User Settings</h1>
               <div className="flex p-2 items-center justify-between">
+                <div className="flex items-center gap-2">
+                  {sessions && user.name === sessions?.user.name ? (
+                      <Link
+                          href={"/en/hanime/hentai"}
+                          className="flex items-center gap-2 p-1 px-2 ring-[1px] antialiased ring-txt rounded text-xs font-karla hover:bg-txt hover:shadow-lg group">
+                        <span className="group-hover:text-black">Hanime</span>
+                      </Link>
+                  ) : null}
+                </div>
+              </div>
+              <div className="flex p-2 items-center justify-between">
                 <h2
-                  className="text-sm text-white/70"
-                  title="Disabling this will stop adding your Anime to 'Watched using Streamsora' list."
+                    className="text-sm text-white/70"
+                    title="Disabling this will stop adding your Anime to 'Watched using Streamsora' list."
                 >
                   Custom Lists
                 </h2>
                 <div className="w-5 h-5">
                   <input
-                    type="checkbox"
-                    checked={useCustomList}
-                    onChange={handleCheckboxChange}
-                    className="accent-action"
+                      type="checkbox"
+                      checked={useCustomList}
+                      onChange={handleCheckboxChange}
+                      className="accent-action"
                   />
                 </div>
               </div>
             </div>
           )}
           {media.length !== 0 && (
-            <div className="font-karla grid gap-4">
-              <div className="flex md:justify-normal justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <h1>Lists Filter</h1>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-[20px] h-[20px]"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+              <div className="font-karla grid gap-4">
+                <div className="flex md:justify-normal justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <h1>Lists Filter</h1>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-[20px] h-[20px]"
+                    >
+                      <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                       d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z"
                     />
                   </svg>
