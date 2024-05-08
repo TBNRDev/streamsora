@@ -161,10 +161,10 @@ export default function WatchPage({ video }) {
 
 export async function getServerSideProps({ params }) {
   const { id } = params;
-  const corsProxy = "https://m3u8-proxy-cors-lac-rho.vercel.app/cors?url="; // Replace with your actual CORS proxy server URL
+  const corsProxy = "https://cros.shashstorm.in/cors?url="; // Replace with your actual CORS proxy server URL
 
   try {
-    const response = await fetch(`https://hanime-api-five.vercel.app/watch/${id}`);
+    const response = await fetch(`https://hanime.araxyso.xyz/watch/${id}`);
     const data = await response.json();
 
     if (!data.results || !data.results[0]) {

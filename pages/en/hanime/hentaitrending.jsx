@@ -36,7 +36,7 @@ export default function TrendingHentai({ sessions, trendingData, tagsData }) {
   useEffect(() => {
     const fetchTrendingData = async () => {
       setLoading(true);
-      const res = await fetch(`https://hanime-api-five.vercel.app/trending/day/${page}`);
+      const res = await fetch(`https://hanime.araxyso.xyz/trending/day/${page}`);
       const newTrendingData = await res.json();
 
       if (newTrendingData?.results?.length === 0) {
@@ -63,7 +63,7 @@ export default function TrendingHentai({ sessions, trendingData, tagsData }) {
       setPage(1); // Reset page to 1 when a new tag is selected
 
       // Fetch trending data based on the selected tag
-      const res = await fetch(`https://hanime-api-five.vercel.app/tags/${encodeURIComponent(newSelectedTag)}/1`);
+      const res = await fetch(`https://hanime.araxyso.xyz/tags/${encodeURIComponent(newSelectedTag)}/1`);
       const newTrendingData = await res.json();
 
       if (newTrendingData?.results?.length === 0) {
@@ -167,7 +167,7 @@ export async function getServerSideProps(context) {
   const tagRes = await fetch("https://hanime-api-five.vercel.app/tags");
   const tagsData = await tagRes.json();
 
-  const res = await fetch("https://hanime-api-five.vercel.app/trending/day/1");
+  const res = await fetch("https://hanime.araxyso.xyz/trending/day/1");
   const trendingData = await res.json();
 
   return {

@@ -18,7 +18,7 @@ export default function HentaiContent({ section }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://hanime-api-five.vercel.app/trending/day/${currentPage}`);
+        const response = await fetch(`https://hanime.araxyso.xyz/trending/day/${currentPage}`);
         const result = await response.json();
         console.log('API Response:', result);
         setData(result.results);
