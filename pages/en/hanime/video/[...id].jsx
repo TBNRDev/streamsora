@@ -145,7 +145,7 @@ export default function WatchPage({ video }) {
                         <div className="text-center">
                           <h3 className="text-lg lg:text-xl font-semibold mb-2">{episode.name}</h3>
                           <p className="text-gray-600 text-sm lg:text-base mb-2">Views: {episode.views}</p>
-                          <a href={`/en/hanime/watch/${episode.id}`} className="font-semibold text-[#66ccff] text-sm lg:text-base">
+                          <a href={`/en/hanime/video/${episode.id}`} className="font-semibold text-[#66ccff] text-sm lg:text-base">
                             Watch Episode
                           </a>
                         </div>

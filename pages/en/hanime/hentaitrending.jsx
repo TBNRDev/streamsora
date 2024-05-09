@@ -164,7 +164,7 @@ export default function TrendingHentai({ sessions, trendingData, tagsData }) {
 export async function getServerSideProps(context) {
   const session = await getServerSession(context.req, context.res, authOptions);
 
-  const tagRes = await fetch("https://hanime-api-five.vercel.app/tags");
+  const tagRes = await fetch("https://hanime.araxyso.xyz/tags");
   const tagsData = await tagRes.json();
 
   const res = await fetch("https://hanime.araxyso.xyz/trending/day/1");
