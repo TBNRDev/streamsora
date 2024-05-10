@@ -379,7 +379,7 @@ export default function Home({
         </Head>
         <MobileNav hideProfile={true}/>
 
-        <div className="h-auto w-screen     bg-[#141519] text-[#dbdcdd] relative z-50">
+        <div className="h-auto w-screen bg-[#141519] text-[#dbdcdd] relative z-50">
           <Navbar withNav={true} home={true}/>
           {/* PC / TABLET */}
           <section className="flex items-center bottom-1 top-[-10vh] justify-center h-screen relative -z-40">
