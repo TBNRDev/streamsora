@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import NextAuth, {NextAuthOptions} from "next-auth";
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -50,8 +50,8 @@ export const authOptions: NextAuthOptions = {
 
           let custLists = userLists || [];
 
-          if (!userLists?.includes("Watched using Moopa")) {
-            custLists.push("Watched using Moopa");
+          if (!userLists?.includes("Watched using Streamsora")) {
+            custLists.push("Watched using Streamsora");
             const fetchGraphQL = async (
               query: string,
               variables: { lists: any }
@@ -77,8 +77,7 @@ export const authOptions: NextAuthOptions = {
                     }
                   }
                 `;
-              const data = await fetchGraphQL(setList, { lists });
-              return data;
+              return await fetchGraphQL(setList, {lists});
             };
 
             await customLists(custLists);
@@ -115,7 +114,7 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       return { ...token, ...user };
     },
-    async session({ session, token, user }) {
+    async session({ session, token}) {
       session.user = token;
       return session;
     },
