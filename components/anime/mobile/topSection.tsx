@@ -121,7 +121,7 @@ export default function DetailTop({
             onClick={() => router.push(watchUrl ?? "#")}
             className={`${
               !watchUrl ? "opacity-30 pointer-events-none" : ""
-            } w-[180px] flex-center text-lg font-karla font-semibold gap-2 border-black border-opacity-10 text-black rounded-full py-1 px-4 bg-white hover:opacity-80`}
+            } w-[180px] flex-center text-lg font-karla font-semibold gap-2 border-black border-opacity-10 text-white rounded py-1 px-4 bg-secondary hover:opacity-80`}
           >
             {isAnime ? (
               <PlayIcon className="w-5 h-5" />
@@ -149,13 +149,13 @@ export default function DetailTop({
             )}
           </button>
         ) : (
-          <div className="h-10 w-[180px] bg-secondary flex-center text-lg font-karla font-semibold gap-2 border-black border-opacity-10 text-black rounded-full" />
+          <div className="h-10 w-[180px] bg-secondary flex-center text-lg font-karla font-semibold gap-2 border-black border-opacity-10 text-black rounded" />
         )}
         <div className="flex gap-2">
           {info ? (
             <button
               type="button"
-              className="flex-center group relative w-10 h-10 bg-secondary rounded-full"
+              className="flex-center group relative w-10 h-10 bg-secondary rounded"
               onClick={() => handleOpen()}
             >
               <span className="absolute pointer-events-none z-40 opacity-0 -translate-y-8 group-hover:-translate-y-10 group-hover:opacity-100 font-karla shadow-tersier shadow-md whitespace-nowrap bg-secondary px-2 py-1 rounded transition-all duration-200 ease-out">
@@ -164,12 +164,12 @@ export default function DetailTop({
               <PlusIcon className="w-5 h-5" />
             </button>
           ) : (
-            <div className="w-10 h-10 bg-secondary rounded-full" />
+            <div className="w-10 h-10 bg-secondary rounded" />
           )}
           {info ? (
             <button
               type="button"
-              className="flex-center group relative w-10 h-10 bg-secondary rounded-full"
+              className="flex-center group relative w-10 h-10 bg-secondary rounded"
               onClick={handleShareClick}
             >
               <span className="absolute pointer-events-none z-40 opacity-0 -translate-y-8 group-hover:-translate-y-10 group-hover:opacity-100 font-karla shadow-tersier shadow-md whitespace-nowrap bg-secondary px-2 py-1 rounded transition-all duration-200 ease-out">
@@ -178,14 +178,14 @@ export default function DetailTop({
               <ShareIcon className="w-5 h-5" />
             </button>
           ) : (
-            <div className="w-10 h-10 bg-secondary rounded-full" />
+            <div className="w-10 h-10 bg-secondary rounded" />
           )}
           {info ? (
             <a
               target="_blank"
               rel="noopener noreferrer"
               href={`https://anilist.co/${info.type.toLowerCase()}/${info.id}`}
-              className="flex-center group relative w-10 h-10 bg-secondary rounded-full"
+              className="flex-center group relative w-10 h-10 bg-secondary rounded"
             >
               <span className="absolute pointer-events-none z-40 opacity-0 -translate-y-8 group-hover:-translate-y-10 group-hover:opacity-100 font-karla shadow-tersier shadow-md whitespace-nowrap bg-secondary px-2 py-1 rounded transition-all duration-200 ease-out">
                 See on AniList
@@ -198,7 +198,7 @@ export default function DetailTop({
               />
             </a>
           ) : (
-            <div className="w-10 h-10 bg-secondary rounded-full" />
+            <div className="w-10 h-10 bg-secondary rounded" />
           )}
         </div>
       </div>
@@ -207,7 +207,7 @@ export default function DetailTop({
         {info ? (
           <button
             type="button"
-            className="flex-center group relative w-10 h-10 bg-secondary rounded-full"
+            className="flex-center group relative w-10 h-10 bg-secondary rounded"
             onClick={() => handleOpen()}
           >
             <span className="absolute pointer-events-none z-40 opacity-0 -translate-y-8 group-hover:-translate-y-10 group-hover:opacity-100 font-karla shadow-tersier shadow-md whitespace-nowrap bg-secondary px-2 py-1 rounded transition-all duration-200 ease-out">
@@ -216,7 +216,7 @@ export default function DetailTop({
             <PlusIcon className="w-5 h-5" />
           </button>
         ) : (
-          <div className="w-10 h-10 bg-secondary rounded-full" />
+          <div className="w-10 h-10 bg-secondary rounded" />
         )}
         {info ? (
           <button
@@ -224,7 +224,7 @@ export default function DetailTop({
             onClick={() => router.push(watchUrl ?? "#")}
             className={`${
               !watchUrl ? "opacity-30 pointer-events-none" : ""
-            } flex items-center text-lg font-karla font-semibold gap-1 border-black border-opacity-10 text-black rounded-full py-2 px-4 bg-white`}
+            } flex items-center text-lg font-karla font-semibold gap-1 border-black border-opacity-10 text-black rounded py-2 px-4 bg-white`}
           >
             {isAnime ? (
               <PlayIcon className="w-5 h-5" />
@@ -252,12 +252,12 @@ export default function DetailTop({
             )}
           </button>
         ) : (
-          <div className="h-10 w-32 bg-secondary flex-center text-lg font-karla font-semibold gap-2 border-black border-opacity-10 text-black rounded-full" />
+          <div className="h-10 w-32 bg-secondary flex-center text-lg font-karla font-semibold gap-2 border-black border-opacity-10 text-black rounded" />
         )}
         {info ? (
           <button
             type="button"
-            className="flex-center group relative w-10 h-10 bg-secondary rounded-full"
+            className="flex-center group relative w-10 h-10 bg-secondary rounded"
             onClick={handleShareClick}
           >
             <span className="absolute pointer-events-none z-40 opacity-0 -translate-y-8 group-hover:-translate-y-10 group-hover:opacity-100 font-karla shadow-tersier shadow-md whitespace-nowrap bg-secondary px-2 py-1 rounded transition-all duration-200 ease-out">
@@ -266,7 +266,7 @@ export default function DetailTop({
             <ShareIcon className="w-5 h-5" />
           </button>
         ) : (
-          <div className="w-10 h-10 bg-secondary rounded-full" />
+          <div className="w-10 h-10 bg-secondary rounded" />
         )}
       </div>
 
@@ -314,7 +314,7 @@ export default function DetailTop({
             )}
           </div>
           <div
-            className={` md:w-full flex gap-5 overflow-x-scroll snap-x scroll-px-5 scrollbar-none md:grid md:grid-cols-3 justify-items-center md:pt-7 md:pb-5 px-3 md:px-4 pt-4 rounded-xl`}
+            className={` md:w-full flex gap-5 overflow-x-scroll snap-x scroll-px-5 scrollbar-none md:grid md:grid-cols-3 justify-items-center md:pt-7 md:pb-5 px-3 md:px-4 pt-4 rounded`}
           >
             {info?.relations?.edges
               .slice(0, showAll ? info?.relations?.edges.length : 3)
@@ -338,15 +338,15 @@ export default function DetailTop({
                   >
                     <div
                       key={rel.id}
-                      className="w-[400px] md:w-full h-[126px] bg-secondary flex rounded-md"
+                      className="w-[400px] md:w-full h-[126px] bg-secondary flex rounded"
                     >
-                      <div className="w-[90px] bg-image rounded-l-md shrink-0">
+                      <div className="w-[90px] bg-image roundedshrink-0">
                         <Image
                           src={rel.coverImage.extraLarge}
                           alt={rel.id.toString()}
                           height={500}
                           width={500}
-                          className="object-cover h-full w-full shrink-0 rounded-l-md"
+                          className="object-cover h-full w-full shrink-0 rounded"
                         />
                       </div>
                       <div className="h-full grid px-3 items-center">

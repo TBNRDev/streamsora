@@ -38,7 +38,7 @@ export default function Details({
   const truncatedDesc = truncateText(description, 420);
 
   function handlePlan() {
-    if (onList === false) {
+    if (!onList) {
       markPlanning(info.id);
       setOnList(true);
     }
@@ -185,7 +185,7 @@ export default function Details({
           </>
         )}
       </div>
-      {/* {<div className="mt-5 px-5"></div>} */}
+      {/* {<div className="mt-5 px-5"></div>}
       {!showComments && (
         <div className="w-full flex justify-center py-2 font-karla lg:px-0">
           <button
@@ -230,7 +230,7 @@ export default function Details({
             </div>
           )}
         </div>
-      )}
+      )}*/}
     </div>
   );
 }

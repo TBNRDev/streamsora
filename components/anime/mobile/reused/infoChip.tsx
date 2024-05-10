@@ -21,7 +21,7 @@ const InfoChip: FC<InfoChipProps> = ({ info, color, className }) => {
     >
       {info?.episodes && (
         <div
-          className={`dynamic-text rounded-md px-2 font-karla font-bold`}
+          className={`dynamic-text rounded px-2 font-karla font-bold`}
           style={color}
         >
           {info?.episodes} Episodes
@@ -29,7 +29,7 @@ const InfoChip: FC<InfoChipProps> = ({ info, color, className }) => {
       )}
       {info?.averageScore && (
         <div
-          className={`dynamic-text rounded-md px-2 font-karla font-bold`}
+          className={`dynamic-text rounded px-2 font-karla font-bold`}
           style={color}
         >
           {info?.averageScore}%
@@ -37,7 +37,7 @@ const InfoChip: FC<InfoChipProps> = ({ info, color, className }) => {
       )}
       {info?.format && (
         <div
-          className={`dynamic-text rounded-md px-2 font-karla font-bold`}
+          className={`dynamic-text rounded px-2 font-karla font-bold`}
           style={color}
         >
           {getFormat(info?.format)}
@@ -45,7 +45,7 @@ const InfoChip: FC<InfoChipProps> = ({ info, color, className }) => {
       )}
       {info?.status && (
         <div
-          className={`dynamic-text rounded-md px-2 font-karla font-bold`}
+          className={`dynamic-text rounded px-2 font-karla font-bold`}
           style={color}
         >
           {info?.status}

@@ -1,10 +1,10 @@
-import { useEffect, useState, Fragment } from "react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import {Fragment, useEffect, useState} from "react";
+import {ChevronDownIcon} from "@heroicons/react/20/solid";
 import ViewSelector from "./viewSelector";
 import ThumbnailOnly from "./viewMode/thumbnailOnly";
 import ThumbnailDetail from "./viewMode/thumbnailDetail";
 import ListMode from "./viewMode/listMode";
-import { toast } from "sonner";
+import {toast} from "sonner";
 
 const ITEMS_PER_PAGE = 13;
 const DEFAULT_VIEW = 3;
@@ -16,9 +16,7 @@ const fetchEpisodes = async (info, isDub, refresh = false) => {
       }${isDub ? "&dub=true" : ""}${refresh ? "&refresh=true" : ""}`
   ).then((res) => res.json());
 
-  const providers = filterProviders(response);
-
-  return providers;
+  return filterProviders(response);
 };
 
 const filterProviders = (response) => {
@@ -166,7 +164,7 @@ export default function AnimeEpisode({
 
         setProgress(maxWatchedEpisode);
       } else {
-        return;
+
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -235,7 +233,7 @@ export default function AnimeEpisode({
               <div className="flex items-center gap-2">
                 <div
                     onClick={() => setIsDub((prev) => !prev)}
-                    className="flex lg:hidden flex-col items-center relative rounded-md bg-secondary py-1.5 px-3 font-karla text-sm hover:ring-1 ring-action cursor-pointer group"
+                    className="flex lg:hidden flex-col items-center relative rounded bg-secondary py-1.5 px-3 font-karla text-sm hover:ring-1 ring-action cursor-pointer group"
                 >
                   {isDub ? "Dub" : "Sub"}
 
@@ -244,7 +242,7 @@ export default function AnimeEpisode({
                 </span>
                 </div>
                 <div
-                    className="lg:hidden bg-secondary p-1 rounded-md cursor-pointer"
+                    className="lg:hidden bg-secondary p-1 rounded cursor-pointer"
                     onClick={() => setVisible(!visible)}
                 >
                   <svg
@@ -272,7 +270,7 @@ export default function AnimeEpisode({
               {providers && (
                   <div
                       onClick={() => setIsDub((prev) => !prev)}
-                      className="hidden lg:flex flex-col items-center relative rounded-[3px] bg-secondary py-1 px-3 font-karla text-sm hover:ring-1 ring-action cursor-pointer group"
+                      className="hidden lg:flex flex-col items-center relative rounded bg-secondary py-1 px-3 font-karla text-sm hover:ring-1 ring-action cursor-pointer group"
                   >
                     {isDub ? "Dub" : "Sub"}
                     <span className="absolute pointer-events-none z-40 opacity-0 -translate-y-8 group-hover:-translate-y-10 group-hover:opacity-100 font-karla shadow-tersier shadow-md whitespace-nowrap bg-secondary px-2 py-1 rounded transition-all duration-200 ease-out">
@@ -288,7 +286,7 @@ export default function AnimeEpisode({
                             title="Providers"
                             onChange={handleChange}
                             value={providerId}
-                            className="flex items-center text-sm gap-5 rounded-[3px] bg-secondary py-1 px-3 pr-8 font-karla appearance-none cursor-pointer outline-none focus:ring-1 focus:ring-action group-hover:ring-1 group-hover:ring-action"
+                            className="flex items-center text-sm gap-5 rounded bg-secondary py-1 px-3 pr-8 font-karla appearance-none cursor-pointer outline-none focus:ring-1 focus:ring-action group-hover:ring-1 group-hover:ring-action"
                         >
                           {providers.map((provider) => (
                               <option
@@ -309,7 +307,7 @@ export default function AnimeEpisode({
                                 onChange={(e) =>
                                     handlePageChange(Number(e.target.value))
                                 }
-                                className="flex items-center text-sm gap-5 rounded-[3px] bg-secondary py-1 px-3 pr-8 font-karla appearance-none cursor-pointer outline-none focus:ring-1 focus:ring-action hover:ring-1 hover:ring-action"
+                                className="flex items-center text-sm gap-5 rounded bg-secondary py-1 px-3 pr-8 font-karla appearance-none cursor-pointer outline-none focus:ring-1 focus:ring-action hover:ring-1 hover:ring-action"
                             >
                               {[...Array(totalPages)].map((_, i) => (
                                   <option key={i} value={i + 1}>

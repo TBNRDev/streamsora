@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { parseImageProxy } from "../../../utils/imageUtils";
+import { parseImageProxy } from "@/utils/imageUtils";
 
 export default function ThumbnailOnly({
   info,
@@ -27,7 +27,7 @@ export default function ThumbnailOnly({
       href={`/en/anime/watch/${info.id}/${providerId}?id=${encodeURIComponent(
         episode.id
       )}&num=${episode.number}${dub ? `&dub=${dub}` : ""}`}
-      className="transition-all duration-200 ease-out lg:hover:scale-105 hover:ring-1 hover:ring-white cursor-pointer bg-secondary shrink-0 relative w-full h-[180px] sm:h-[130px] subpixel-antialiased rounded-md overflow-hidden"
+      className="transition-all duration-200 ease-out lg:hover:scale-105 hover:ring-1 hover:ring-white cursor-pointer bg-secondary shrink-0 relative w-full h-[180px] sm:h-[130px] subpixel-antialiased rounded overflow-hidden"
     >
       <span className="absolute text-sm z-40 bottom-1 left-2 font-karla font-semibold text-white">
         Episode {episode?.number || 0}

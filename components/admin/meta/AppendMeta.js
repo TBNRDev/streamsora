@@ -1,18 +1,16 @@
 import Loading from "@/components/shared/loading";
 import Image from "next/image";
-import { useState } from "react";
-import { toast } from "sonner";
+import {useState} from "react";
+import {toast} from "sonner";
 
 // Define a function to convert the data
 function convertData(episodes) {
-  const convertedData = episodes.map((episode) => ({
-    episode: episode.episode,
-    title: episode?.title,
-    description: episode?.description || null,
-    img: episode?.img?.hd || episode?.img?.mobile || null, // Use hd if available, otherwise use mobile
+    return episodes.map((episode) => ({
+      episode: episode.episode,
+      title: episode?.title,
+      description: episode?.description || null,
+      img: episode?.img?.hd || episode?.img?.mobile || null, // Use hd if available, otherwise use mobile
   }));
-
-  return convertedData;
 }
 
 export default function AppendMeta({ api }) {
@@ -240,12 +238,12 @@ export default function AppendMeta({ api }) {
           {loading && <Loading />}
         </div>
         <div>
-          {/* {resultData && (
+           {resultData && (
             <div className="border rounded-md p-4 mt-4">
               <h2 className="text-lg font-semibold mb-2">Result Data:</h2>
               <pre>{JSON.stringify(resultData, null, 2)}</pre>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </>

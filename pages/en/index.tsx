@@ -379,7 +379,7 @@ export default function Home({
         </Head>
         <MobileNav hideProfile={true}/>
 
-        <div className="h-auto w-screen bg-[#141519] text-[#dbdcdd] relative z-50">
+        <div className="h-auto w-screen     bg-[#141519] text-[#dbdcdd] relative z-50">
           <Navbar withNav={true} home={true}/>
           {/* PC / TABLET */}
           <section className="flex items-center bottom-1 top-[-10vh] justify-center h-screen relative -z-40">
@@ -443,7 +443,7 @@ export default function Home({
                         exit={{opacity: 0, y: 20}}
                         transition={{duration: 0.5}}
                         href={`/en/anime/${firstTrend?.id || ''}`}
-                        className="rounded-sm rounded-tl-[4px] rounded-tr-[4px] rounded-bl-[4px] rounded-br-[4px] p-3 text-[#66ccff] border border-[#66ccff] hover:bg-[#66ccff] hover:text-white hover:ring-2 hover:ring-[#66ccff] transition-all duration-300 text-md font-karla font-light m-3"
+                        className="rounded rounded-tl-[4px] rounded-tr-[4px] rounded-bl-[4px] rounded-br-[4px] p-3 text-[#66ccff] border border-[#66ccff] hover:bg-[#66ccff] hover:text-white hover:ring-2 hover:ring-[#66ccff] transition-all duration-300 text-md font-karla font-light m-3"
                     >
                       START WATCHING
                     </motion.a>
