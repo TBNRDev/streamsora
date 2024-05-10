@@ -604,7 +604,7 @@ export default function Home({
                     />
                   </motion.section>
               )}
-              <div className="justify-center items-center w-full insert-0 h-25 bg-white flex-center my-2.5 rounded text-black">
+{/*              <div className="justify-center items-center w-full insert-0 h-25 bg-white flex-center my-2.5 rounded text-black">
                 <Image
                     src="/standard.gif"
                     alt={`cover ${firstTrend?.title?.english}`}
@@ -614,7 +614,7 @@ export default function Home({
                     quality={100}
                     className="w-full h-full bg-blend-overlay rounded brightness-100"
                 />
-              </div>
+              </div>*/}
 
               {/* Schedule */}
               {anime.length > 0 && (
