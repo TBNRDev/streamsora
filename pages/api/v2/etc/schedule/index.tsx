@@ -7,7 +7,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 async function fetchData() {
   try {
     const { data } = await axios.get(
-      `https://api.anify.tv/schedule?fields=[id,coverImage,title,bannerImage]`
+      `https://anify.eltik.cc/schedule?fields=[id,coverImage,title,bannerImage]`
     );
     return data;
   } catch (error) {

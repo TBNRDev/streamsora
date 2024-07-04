@@ -3,13 +3,13 @@ export const getGreetings = () => {
   let greeting = "";
 
   if (time >= 5 && time < 12) {
-    greeting = "Good morning";
+    greeting = "Good Morning";
   } else if (time >= 12 && time < 18) {
-    greeting = "Good afternoon";
+    greeting = "Good Afternoon";
   } else if (time >= 18 && time < 22) {
-    greeting = "Good evening";
+    greeting = "Good Evening";
   } else if (time >= 22 || time < 5) {
-    greeting = "Good night";
+    greeting = "Good Night";
   }
 
   return greeting;

@@ -41,7 +41,7 @@ export default async function handler(
 
       const fetchData = async (page: any) => {
         const { data } = await axios.get(
-          `https://api.anify.tv/recent?type=anime&page=${page}&perPage=45&fields=[id,slug,title,currentEpisode,coverImage,episodes]`
+          `https://anify.eltik.cc/recent?type=anime&page=${page}&perPage=45&fields=[id,slug,title,currentEpisode,coverImage,episodes]`
         );
 
         // const filtered = data?.results?.filter((i) => i.type !== "ONA");

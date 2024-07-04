@@ -116,7 +116,7 @@ async function fetchConsumet(id?: string | string[] | undefined) {
 async function fetchAnify(id?: string) {
   try {
     const { data } = await axios.get<AnifyEpisode[]>(
-        `https://api.anify.tv/episodes/${id}`
+        `https://anify.eltik.cc/episodes/${id}`
     );
 
     if (!data) {
@@ -139,7 +139,7 @@ async function fetchCoverImage(id: string, available = false) {
     }
 
     const { data } = await axios.get(
-        `https://api.anify.tv/content-metadata/${id}`
+        `https://anify.eltik.cc/content-metadata/${id}`
     );
 
     if (!data) {
