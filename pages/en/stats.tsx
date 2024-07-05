@@ -24,7 +24,7 @@ export default function Stats() {
   const [zoroData, setZoroData] = useState<ZoroData | null>(null);
 
   useEffect(() => {
-    fetchApiData("https://api.anify.tv/stats", setApiData);
+    fetchApiData("https://anify.eltik.cc/stats", setApiData);
     fetchApiData("https://zoro.anify.tv/key/4", setZoroData);
   }, []);
 

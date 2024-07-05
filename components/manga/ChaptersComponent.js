@@ -27,7 +27,7 @@ export default function ChaptersComponent({
 
         if (mangaId) {
           const Chapters = await pls.get(
-            `https://api.anify.tv/chapters/${mangaId}`
+            `https://anify.eltik.cc/chapters/${mangaId}`
           );
           //   console.log("clean this balls");
 
