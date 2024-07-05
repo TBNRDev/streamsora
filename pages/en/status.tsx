@@ -21,7 +21,7 @@ export default function Status() {
     { url: 'https://api.streamsora.live', altName: 'API' },
     { url: 'https://m3u8.streamsora.live/proxy/m3u8', altName: 'M3U8' },
     { url: 'https://streamsora.live', altName: 'Website' },
-    { url: 'https://api.anify.tv', altName: 'Scraper' },
+    { url: 'https://anify.eltik.cc', altName: 'Scraper' },
     { url: 'https://hanime-api-five.vercel.app', altName: 'Hanime API' },
     { url: 'https://image-proxy-zeta.vercel.app', altName: 'Image Proxy' },
     // Add more servers as needed
