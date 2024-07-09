@@ -164,7 +164,7 @@ export async function getServerSideProps({ params }) {
   const corsProxy = "https://cros.shashstorm.in/cors?url="; // Replace with your actual CORS proxy server URL
 
   try {
-    const response = await fetch(`https://hanime.araxyso.xyz/watch/${id}`);
+    const response = await fetch(`https://hanime-api-plum.vercel.app/watch/${id}`);
     const data = await response.json();
 
     if (!data.results || !data.results[0]) {

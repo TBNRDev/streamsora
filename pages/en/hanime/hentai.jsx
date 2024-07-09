@@ -86,7 +86,7 @@ export default function Home({ detail, populars, upComing }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("https://hanime.araxyso.xyz/trending/day/1");
+        const response = await fetch("https://hanime-api-plum.vercel.app/trending/day/1");
         const result = await response.json();
         setData(result.results[0]);
       } catch (error) {
