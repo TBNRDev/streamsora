@@ -230,7 +230,7 @@ export default function Manga({
         />
         <meta
           property="og:title"
-          content={`Streamsora - ${
+          content={`Kaizoku - ${
             metaData?.title.romaji || metaData?.title.english
           }`}
         />
@@ -254,7 +254,7 @@ export default function Manga({
         <meta name="twitter:site" content="@yourTwitterHandle" />
         <meta
           name="twitter:title"
-          content={`Streamsora - ${
+          content={`Kaizoku - ${
             metaData?.title.romaji || metaData?.title.english
           }`}
         />

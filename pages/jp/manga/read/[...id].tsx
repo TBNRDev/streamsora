@@ -52,7 +52,7 @@ export default function ReadNovel({ mangaId, chapterId, API }: ReadNovelProps) {
           {data?.pages?.map((i) => (
             <div key={i.index}>
               <Image
-                src={`https://api.streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                   i.src
                 )}${`&headers=${encodeURIComponent(
                   JSON.stringify({ Referer: "https://komikindo.tv/" })

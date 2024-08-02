@@ -13,7 +13,7 @@ export default function Custom404() {
         <title>Not Found</title>
         <meta name="about" content="About this web" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/streamsora.png" />
+        <link rel="icon" href="/Kaizoku.png" />
       </Head>
       <Navbar withNav shrink />
       <div className="min-h-screen w-screen flex flex-col items-center justify-center ">

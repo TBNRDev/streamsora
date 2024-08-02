@@ -69,7 +69,7 @@ export default function MyList({
   return (
     <>
       <Head>
-        <title>Streamsora - My Lists</title>
+        <title>Kaizoku - My Lists</title>
       </Head>
 
       <Navbar withNav toTop shrink bgHover scrollP={110} paddingY={"py-1"} />
@@ -181,7 +181,7 @@ export default function MyList({
               <div className="flex p-2 items-center justify-between">
                 <h2
                     className="text-sm text-white/70"
-                    title="Disabling this will stop adding your Anime to 'Watched using Streamsora' list."
+                    title="Disabling this will stop adding your Anime to 'Watched using Kaizoku' list."
                 >
                   Custom Lists
                 </h2>

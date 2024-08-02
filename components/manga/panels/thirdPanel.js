@@ -129,7 +129,7 @@ export default function ThirdPanel({
                 quality={imageQuality}
                 className="w-full h-screen object-contain"
                 onClick={() => setMobileVisible(!mobileVisible)}
-                src={`https://api.streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                   image[image.length - index - 1]?.url
                 )}${
                   image[image.length - index - 1]?.headers?.Referer

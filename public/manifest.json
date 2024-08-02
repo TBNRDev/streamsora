@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Streamsora",
-  "short_name": "Streamsora",
+  "name": "Kaizoku",
+  "short_name": "Kaizoku",
   "description": "Watch and Read your favorite Anime/Manga in one single app",
   "icons": [
     {

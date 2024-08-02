@@ -90,7 +90,7 @@ export default function Stats() {
   return (
       <motion.div initial="initial" animate="animate" variants={pageVariants} transition={{ duration: 1 }} className="min-h-screen flex items-center justify-center text-white">
         <Head>
-          <title>Streamsora - Stats</title>
+          <title>Kaizoku - Stats</title>
           <meta name="Stats" content="Stats" />
         </Head>
         <>

@@ -69,7 +69,7 @@ export default async function handler(request: any) {
               filter: "brightness(100%)",
             }}
           >
-            Streamsora
+            Kaizoku
           </span>
           <h1
             style={{

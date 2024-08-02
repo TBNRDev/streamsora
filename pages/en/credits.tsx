@@ -22,7 +22,7 @@ export default function Credits() {
       transition={{ duration: 1 }}
     >
       <Head>
-        <title>Streamsora - Credits</title>
+        <title>Kaizoku - Credits</title>
         <meta name="Credits" content="Credits" />
       </Head>
       <>

@@ -34,7 +34,7 @@ function Footer() {
                 height={100}
                 className="w-10 h-10"
               /> */}
-                        <div className="flex gap-2 font-outfit text-4xl">Streamsora</div>
+                        <div className="flex gap-2 font-outfit text-4xl">Kaizoku</div>
                         <p className="font-karla lg:text-[0.8rem] text-[0.65rem] text-[#9c9c9c]  lg:w-[520px] italic">
                             This site does not store any files on our server, we only linked
                             to the media which is hosted on 3rd party services.
@@ -94,13 +94,13 @@ function Footer() {
                 <div
                     className="mx-auto flex w-[90%] lg:w-[95%] xl:w-[80%] flex-col pb-6 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:py-0">
                     <p className="flex items-center gap-1 font-karla lg:text-[0.81rem] text-[0.7rem] text-[#CCCCCC] py-3">
-                        &copy; {new Date().getFullYear()} streamsora.live | Website hosted by{" "}
-                        Streamsora
+                        &copy; {new Date().getFullYear()} kaizoku.live | Website hosted by{" "}
+                        Kaizoku
                     </p>
                     <div className="flex items-center gap-5">
                         {/* Github Icon */}
                         <Link
-                            href="https://github.com/streamsora/"
+                            href="https://github.com/Kaizoku/"
                             className="w-5 h-5 hover:opacity-75"
                         >
                             <svg

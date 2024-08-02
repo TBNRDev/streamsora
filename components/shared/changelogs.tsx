@@ -13,6 +13,7 @@ const logs = [
         notes: null,
         highlights: true,
         changes: [
+            "Streamsora is now Kaizoku",
             "New player layout for mobile devices",
             "Added seek buttons in the player",
             "Added Hanime watching",

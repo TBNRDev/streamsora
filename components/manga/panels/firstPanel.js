@@ -140,7 +140,7 @@ export default function FirstPanel({
               ref={(el) => (imageRefs.current[index] = el)}
             >
               <Image
-                src={`https://api.streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                   i.url
                 )}${
                   i?.headers?.Referer

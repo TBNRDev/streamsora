@@ -108,7 +108,7 @@ export default function BottomBar({
                       onClick={() => setSeekPage(x.index)}
                     >
                       <Image
-                        src={`https://api.Streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                        src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                           x.url
                         )}${
                           x?.headers?.Referer

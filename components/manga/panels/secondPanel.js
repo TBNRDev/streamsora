@@ -137,7 +137,7 @@ export default function SecondPanel({
                   width={500}
                   height={500}
                   className="w-1/2 h-screen object-contain"
-                  src={`https://api.streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                  src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                     image[image.length - index - 2]?.url
                   )}${
                     image[image.length - index - 2]?.headers?.Referer
@@ -158,7 +158,7 @@ export default function SecondPanel({
                 width={500}
                 height={500}
                 className="w-1/2 h-screen object-contain"
-                src={`https://api.streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                   image[image.length - index - 1]?.url
                 )}${
                   image[image.length - index - 1]?.headers?.Referer

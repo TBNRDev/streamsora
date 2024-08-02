@@ -7,12 +7,12 @@ export default function Dmca() {
   return (
     <>
       <Head>
-        <title>Streamsora - DMCA</title>
+        <title>Kaizoku - DMCA</title>
         <meta name="Dmca" content="Dmca" />
         <meta property="og:title" content="Dmca" />
         <meta
           property="og:description"
-          content="Streamsora.live is committed to respecting the intellectual
+          content="kaizoku.live is committed to respecting the intellectual
                   property rights of others and complying with the Digital
                   Millennium Copyright Act (DMCA)."
         />
@@ -34,7 +34,7 @@ export default function Dmca() {
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-3 text-[#cdcdcd]">
                 <p>
-                  Streamsora.live is committed to respecting the intellectual
+                  kaizoku.live is committed to respecting the intellectual
                   property rights of others and complying with the Digital
                   Millennium Copyright Act (DMCA). We take copyright
                   infringement seriously and will respond to notices of alleged
@@ -86,19 +86,19 @@ export default function Dmca() {
               </p>
               <h1 className="text-white font-karla">DISCLAIMER:</h1>
               <p className="text-[#cdcdcd]">
-                None of the files listed on Streamsora.live are hosted on our
+                None of the files listed on kaizoku.live are hosted on our
                 servers. All links point to content hosted on third-party
-                websites. Streamsora.live does not accept responsibility for content
+                websites. kaizoku.live does not accept responsibility for content
                 hosted on third-party websites and has no involvement in the
                 downloading/uploading of movies. We only post links that are
                 available on the internet. If you believe that any content on
                 our website infringes upon your intellectual property rights and
                 you hold the copyright for that content, please report it to{" "}
                 <a
-                  href="mailto:contact@streamsora.live?subject=[Streamsora]%20-%20Your%20Subject"
+                  href="mailto:contact@kaizoku.live?subject=[Kaizoku]%20-%20Your%20Subject"
                   className="font-semibold"
                 >
-                  contact@streamsora.live
+                  contact@kaizoku.live
                 </a>{" "}
                 and the content will be immediately removed.
               </p>

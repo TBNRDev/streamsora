@@ -146,7 +146,7 @@ export default function PopularAnime({ sessions }) {
   return (
     <>
       <Head>
-        <title>Streamsora - Recently Watched Episodes</title>
+        <title>Kaizoku - Recently Watched Episodes</title>
       </Head>
       <MobileNav sessions={sessions} />
       <div className="flex flex-col gap-2 items-center min-h-screen w-screen px-2 relative pb-10">

@@ -1,4 +1,4 @@
-Welcome to Kaizoku! 🎉 Your ultimate destination for free, ad-free anime streaming. Dive into a world of endless anime adventures with StreamSora.
+Welcome to Kaizoku! 🎉 Your ultimate destination for free, ad-free anime streaming. Dive into a world of endless anime adventures with Kaizoku.
 
 Features
 Free Streaming: Enjoy unlimited access to a vast library of anime without any cost.

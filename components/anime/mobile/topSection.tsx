@@ -47,7 +47,7 @@ export default function DetailTop({
       if (navigator.share) {
         await navigator.share({
           title: `${isAnime ? "Watch" : "Read"} Now - ${info?.title?.english}`,
-          // text: `Watch [${info?.title?.romaji}] and more on Streamsora. Join us for endless anime entertainment"`,
+          // text: `Watch [${info?.title?.romaji}] and more on Kaizoku. Join us for endless anime entertainment"`,
           url: window.location.href,
         });
       } else {

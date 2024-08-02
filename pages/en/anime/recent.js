@@ -71,11 +71,11 @@ export default function Recent({ sessions }) {
   return (
     <Fragment>
       <Head>
-        <title>Streamsora - New Episodes</title>
+        <title>Kaizoku - New Episodes</title>
         <meta name="title" content="New Episodes" />
         <meta
           name="description"
-          content="Explore Beloved Classics and Favorites - Dive into a curated collection of timeless anime on Streamsora's New Episodes Page. From iconic classics to all-time favorites, experience the stories that have captured hearts worldwide. Start streaming now and relive the magic of anime!"
+          content="Explore Beloved Classics and Favorites - Dive into a curated collection of timeless anime on Kaizoku's New Episodes Page. From iconic classics to all-time favorites, experience the stories that have captured hearts worldwide. Start streaming now and relive the magic of anime!"
         />
       </Head>
       <MobileNav sessions={sessions} />

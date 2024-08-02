@@ -193,7 +193,7 @@ export default function Search({ API }: { API: string }) {
                   >
                     {x.img && (
                       <Image
-                        src={`https://api.streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                        src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                           x.img
                         )}${`&headers=${encodeURIComponent(
                           JSON.stringify({ Referer: "https://komikindo.tv/" })

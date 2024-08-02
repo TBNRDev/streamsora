@@ -18,9 +18,9 @@ interface ServerStatus {
 
 export default function Status() {
   const servers: Server[] = [
-    { url: 'https://api.streamsora.live', altName: 'API' },
-    { url: 'https://m3u8.streamsora.live/proxy/m3u8', altName: 'M3U8' },
-    { url: 'https://streamsora.live', altName: 'Website' },
+    { url: 'https://api.kaizoku.live', altName: 'API' },
+    { url: 'https://m3u8.kaizoku.live/proxy/m3u8', altName: 'M3U8' },
+    { url: 'https://kaizoku.live', altName: 'Website' },
     { url: 'https://anify.eltik.cc', altName: 'Scraper' },
     { url: 'https://hanime-api-five.vercel.app', altName: 'Hanime API' },
     { url: 'https://image-proxy-zeta.vercel.app', altName: 'Image Proxy' },
@@ -99,7 +99,7 @@ export default function Status() {
         <motion.div initial="initial" animate="animate" variants={pageVariants} transition={{duration: 1}}
                     className="min-h-screen flex items-center justify-center text-white">
           <Head>
-            <title>Streamsora - Status</title>
+            <title>Kaizoku - Status</title>
             <meta name="Status" content="Status"/>
           </Head>
           <>

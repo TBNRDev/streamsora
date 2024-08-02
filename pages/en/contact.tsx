@@ -36,10 +36,10 @@ const Contact = () => {
           If you have any questions or comments, please email us at:
         </p>
         <a
-          href="mailto:contact@streamsora.live?subject=[Streamsora]%20-%20Your%20Subject"
+          href="mailto:contact@kaizoku.live?subject=[Kaizoku]%20-%20Your%20Subject"
           className="text-blue-400 text-xl hover:underline"
         >
-          contact@streamsora.live
+          contact@kaizoku.live
         </a>
       </motion.div>
     </motion.div>

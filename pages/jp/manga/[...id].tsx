@@ -81,7 +81,7 @@ export default function InfoNovel({ id, API }: InfoNovelProps) {
             <div className="shrink-0 z-50 w-[170px] h-[240px] rounded overflow-hidden bg-secondary/20">
               {data?.image && (
                 <Image
-                  src={`https://api.streamsora.live/utils/image-proxy?url=${encodeURIComponent(
+                  src={`https://api.kaizoku.live/utils/image-proxy?url=${encodeURIComponent(
                     data?.image
                   )}${`&headers=${encodeURIComponent(
                     JSON.stringify({ Referer: "https://komikindo.tv/" })

@@ -50,8 +50,8 @@ export const authOptions: NextAuthOptions = {
 
           let custLists = userLists || [];
 
-          if (!userLists?.includes("Watched using Streamsora")) {
-            custLists.push("Watched using Streamsora");
+          if (!userLists?.includes("Watched using Kaizoku")) {
+            custLists.push("Watched using Kaizoku");
             const fetchGraphQL = async (
               query: string,
               variables: { lists: any }

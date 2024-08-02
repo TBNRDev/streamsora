@@ -46,7 +46,7 @@ export function parseImageProxy(
   if (!url) return;
 
   return providerId
-    ? `https://api.streamsora.live/utils/image-proxy?url=${truncateImgUrl(
+    ? `https://api.kaizoku.live/utils/image-proxy?url=${truncateImgUrl(
         url
       )}${`&headers=${encodeURIComponent(
         JSON.stringify({ Referer: providerId })

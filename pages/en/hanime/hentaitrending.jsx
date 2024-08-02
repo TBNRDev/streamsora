@@ -81,11 +81,11 @@ export default function TrendingHentai({ sessions, trendingData, tagsData }) {
   return (
       <Fragment>
         <Head>
-          <title>Streamsora - Trending Hentai</title>
+          <title>Kaizoku - Trending Hentai</title>
           <meta name="title" content="Trending Anime" />
           <meta
               name="description"
-              content="Explore Top Trending Anime - Dive into the latest and most popular anime series on Streamsora. From thrilling action to heartwarming romance, discover the buzzworthy shows that have everyone talking. Stream now and stay up-to-date with the hottest anime trends!"
+              content="Explore Top Trending Anime - Dive into the latest and most popular anime series on Kaizoku. From thrilling action to heartwarming romance, discover the buzzworthy shows that have everyone talking. Stream now and stay up-to-date with the hottest anime trends!"
           />
         </Head>
         <MobileNav sessions={sessions} />

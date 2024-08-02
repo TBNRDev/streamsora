@@ -127,7 +127,7 @@ export default function Info({ info, color, chapterNotFound }: InfoTypes) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`Streamsora - ${info.title.romaji || info.title.english}`}
+          content={`Kaizoku - ${info.title.romaji || info.title.english}`}
         />
         <meta
           name="twitter:description"
