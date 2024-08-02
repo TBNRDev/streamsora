@@ -19,7 +19,7 @@ export default function About() {
         />
         <meta name="about" content="About this web" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/streamsora.png" />
+        <link rel="icon" href="/kaizoku.png" />
       </Head>
       <Navbar withNav={true} scrollP={5} shrink={true} />
       <motion.div

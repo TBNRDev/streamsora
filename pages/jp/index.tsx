@@ -13,7 +13,7 @@ export default function Home() {
         <title>Under Construction</title>
         <meta name="about" content="About this web" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/streamsora.png" />
+        <link rel="icon" href="/kaizoku.png" />
       </Head>
       <main className="flex flex-col h-screen">
         <Navbar />

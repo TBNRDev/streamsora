@@ -252,7 +252,7 @@ export default function Card({
         <title>Kaizoku - search</title>
         <meta name="title" content="Search" />
         <meta name="description" content="Search your favourites Anime/Manga" />
-        <link rel="icon" href="/streamsora.png" />
+        <link rel="icon" href="/kaizoku.png" />
       </Head>
 
       <Navbar

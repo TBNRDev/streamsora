@@ -218,7 +218,7 @@ export default function Schedule({ schedule }: any) {
       <Head>
         <title>Kaizoku - Schedule</title>
         <meta charSet="UTF-8"></meta>
-        <link rel="icon" href="/svg/streamsora.png" />
+        <link rel="icon" href="/svg/kaizoku.png" />
         <link rel="canonical" href="https://kaizoku.live/en/" />
         <meta name="twitter:card" content="summary_large_image" />
         {/* Write the best SEO for this homepage */}
@@ -234,7 +234,7 @@ export default function Schedule({ schedule }: any) {
           name="twitter:title"
           content="Kaizoku: Your Gateway to Free Anime and Manga Streaming Delight"
         />
-        <meta property="og:image" content="/streamsora.png" />
+        <meta property="og:image" content="/kaizoku.png" />
         <meta property="og:site_name" content="Kaizoku" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -245,7 +245,7 @@ export default function Schedule({ schedule }: any) {
           name="twitter:description"
           content="Embark on a journey to discover your next beloved anime or manga series! Kaizoku boasts an extensive collection of top-tier content, easily accessible across various devices, ensuring a seamless streaming experience devoid of any disruptions. Begin your Kaizoku adventure today and immerse yourself in the world of limitless entertainment!"
         />
-        <meta name="twitter:image" content="/streamsora.png" />
+        <meta name="twitter:image" content="/kaizoku.png" />
         <link rel="canonical" href="https://kaizoku.live/en/schedule" />
       </Head>
       <MobileNav hideProfile={true} />

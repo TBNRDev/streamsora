@@ -16,9 +16,9 @@ export default function Dmca() {
                   property rights of others and complying with the Digital
                   Millennium Copyright Act (DMCA)."
         />
-        <meta property="og:image" content="/streamsora.png" />
+        <meta property="og:image" content="/kaizoku.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/streamsora.png" />
+        <link rel="icon" href="/kaizoku.png" />
       </Head>
       <>
         <Navbar withNav={true} scrollP={5} shrink={true} />
