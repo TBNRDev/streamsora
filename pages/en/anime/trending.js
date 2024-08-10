@@ -121,11 +121,11 @@ export default function TrendingAnime({ sessions }) {
               <Link
                 href={`/en/anime/${i.id}`}
                 className="p-2"
-                title={i.title.romaji}
+                title={i.title.english}
               >
                 <Image
                   src={i.coverImage.large}
-                  alt={i.title.romaji}
+                  alt={i.title.english}
                   width={500}
                   height={500}
                   className="w-[140px] h-[190px] lg:w-[170px] lg:h-[230px] object-cover rounded hover:scale-105 scale-100 transition-all duration-200 ease-out"
@@ -134,7 +134,7 @@ export default function TrendingAnime({ sessions }) {
               <Link
                 href={`/en/anime/${i.id}`}
                 className="w-full px-2"
-                title={i.title.romaji}
+                title={i.title.english}
               >
                 <h1 className="font-karla font-bold xl:text-base text-[15px] line-clamp-2">
                   {i.status === "RELEASING" ? (
@@ -142,7 +142,7 @@ export default function TrendingAnime({ sessions }) {
                   ) : i.status === "NOT_YET_RELEASED" ? (
                     <span className="dots bg-red-500" />
                   ) : null}
-                  {i.title.romaji}
+                  {i.title.english}
                 </h1>
               </Link>
             </div>

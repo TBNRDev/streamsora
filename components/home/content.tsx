@@ -326,7 +326,7 @@ export default function Content({
                               <div className="h-[200px] w-[135px] lg:h-[280px] lg:w-[185px] bg-gradient-to-b from-transparent to-black/90 absolute z-40 rounded whitespace-normal font-karla group">
                                 <div className="flex flex-col items-center h-full justify-end text-center pb-5">
                                   <h1 className="line-clamp-1 w-[70%] text-[10px]">
-                                    {anime.title.romaji || anime.title.english}
+                                    {anime.title.english || anime.title.romaji}
                                   </h1>
                                   {checkProgress(progress) &&
                                       !clicked?.hasOwnProperty(anime.id) && (
@@ -366,8 +366,8 @@ export default function Content({
                                     draggable={false}
                                     src={image}
                                     alt={
-                                        anime.title.romaji ||
                                         anime.title.english ||
+                                        anime.title.romaji ||
                                         "coverImage"
                                     }
                                     width={500}
@@ -405,7 +405,7 @@ export default function Content({
                                 ) : anime.status === "NOT_YET_RELEASED" ? (
                                     <span className="dots bg-red-500" />
                                 ) : null}
-                                {anime.title.romaji}
+                                {anime.title.english}
                               </h1>
                             </Link>
                         )}

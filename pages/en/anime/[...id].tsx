@@ -127,7 +127,7 @@ export default function Info({ info, color, chapterNotFound }: InfoTypes) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`Kaizoku - ${info.title.romaji || info.title.english}`}
+          content={`Kaizoku - ${info.title.english || info.title.romaji}`}
         />
         <meta
           name="twitter:description"
@@ -136,7 +136,7 @@ export default function Info({ info, color, chapterNotFound }: InfoTypes) {
         <meta
           name="twitter:image"
           content={`${domainUrl}/api/og?title=${
-            info.title.romaji || info.title.english
+            info.title.english || info.title.romaji
           }&image=${info.bannerImage || info.coverImage.extraLarge}`}
         />
       </Head>
