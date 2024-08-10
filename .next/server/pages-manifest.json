@@ -1,0 +1,15 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/api/v2/admin/broadcast": "pages/api/v2/admin/broadcast.js",
+  "/en": "pages/en.js",
+  "/en/anime/[...id]": "pages/en/anime/[...id].js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/api/v2/episode/[id]": "pages/api/v2/episode/[id].js",
+  "/api/v2/etc/recent/[page]": "pages/api/v2/etc/recent/[page].js",
+  "/en/anime/watch/[...info]": "pages/en/anime/watch/[...info].js",
+  "/api/v2/source": "pages/api/v2/source.js",
+  "/en/anime/popular": "pages/en/anime/popular.js"
+}
