@@ -20,9 +20,6 @@ import { redis } from "@/lib/redis";
 import { Navbar } from "@/components/shared/NavBar";
 import UserRecommendation from "@/components/home/recommendation";
 import { useRouter } from "next/router";
-import { ChevronLeftIcon, ChevronRightIcon } from "@vidstack/react/icons";
-
-const MAX_TRENDS = 5;
 
 export async function getServerSideProps() {
   let cachedData;
@@ -32,8 +29,8 @@ export async function getServerSideProps() {
   }
 
   if (cachedData) {
-    const { genre, detail, populars, trendingData } = JSON.parse(cachedData);
-    const trendData = trendingData || {}; // Ensure trendingData is not undefined
+    const { genre, detail, populars, firstTrend } = JSON.parse(cachedData);
+    const firstTrendData = firstTrend || {}; // Ensure firstTrend is not undefined
     const upComing = await getUpcomingAnime();
 
     return {
@@ -42,7 +39,7 @@ export async function getServerSideProps() {
         detail,
         populars,
         upComing,
-        trendData,
+        firstTrend: firstTrendData,
       },
     };
   } else {
@@ -57,22 +54,25 @@ export async function getServerSideProps() {
     const genreDetail = await aniListData({ sort: "TYPE", page: 1 });
 
     if (redis) {
-      const trendData = trendingDetail.props.data.slice(0, MAX_TRENDS) || [];
+      const firstTrendData = trendingDetail.props.data[0] || {};
       await redis.set(
         "index_server",
         JSON.stringify({
           genre: genreDetail.props,
           detail: trendingDetail.props,
           populars: popularDetail.props,
-          trendData: trendData,
+          firstTrend: firstTrendData,
         }),
         "EX",
         60 * 60 * 2
       );
     }
 
+    
+    
+
     const upComing = await getUpcomingAnime();
-    const trendData = trendingDetail.props.data.slice(0, MAX_TRENDS) || [];
+    const firstTrendData = trendingDetail.props.data[0] || {};
 
     return {
       props: {
@@ -80,7 +80,7 @@ export async function getServerSideProps() {
         detail: trendingDetail.props,
         populars: popularDetail.props,
         upComing,
-        trendData,
+        firstTrend: firstTrendData,
       },
     };
   }
@@ -91,7 +91,7 @@ type HomeProps = {
   detail: any;
   populars: any;
   upComing: any;
-  trendData: any;
+  firstTrend: any;
 };
 
 export interface SessionTypes {
@@ -122,7 +122,7 @@ export default function Home({
   detail,
   populars,
   upComing,
-  trendData,
+  firstTrend,
 }: HomeProps) {
   const { data: sessions }: any = useSession();
   const userSession: SessionTypes = sessions?.user;
@@ -346,46 +346,6 @@ export default function Home({
     return text?.replace(/<[^>]+>/g, "");
   }
 
-  const [carouselIndex, setCarouselIndex] = useState<number>(0);
-  const [isFading, setIsFading] = useState<boolean>(false);
-  const maxTimeout: number = 15000; // 15 seconds
-
-  const nextSlide = () => {
-    setIsFading(true);
-    setTimeout(() => {
-      setCarouselIndex((prevIndex) => (prevIndex + 1) % trendData.length);
-      setIsFading(false);
-    }, 250);
-  };
-
-  const prevSlide = () => {
-    setIsFading(true);
-    setTimeout(() => {
-      setCarouselIndex(
-        (prevIndex) => (prevIndex - 1 + trendData.length) % trendData.length
-      );
-      setIsFading(false);
-    }, 250);
-  };
-
-  const manualSlide = (index: number) => {
-    setIsFading(true);
-    setTimeout(() => {
-      setCarouselIndex(index);
-      setIsFading(false);
-    }, 250);
-  };
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      nextSlide();
-    }, maxTimeout);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [carouselIndex]);
-
   return (
     <Fragment>
       <Head>
@@ -425,32 +385,37 @@ export default function Home({
       <div className="h-auto w-screen bg-[#141519] text-[#dbdcdd] relative z-50">
         <Navbar withNav={true} home={true} />
         {/* PC / TABLET */}
-        <section className="flex items-center bottom-1 top-[-5vh] justify-center h-screen relative -z-40">
+        <section className="flex items-center bottom-1 top-[-5vh] justify-center h-screen relative -z-40"> 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: isFading ? 0 : 1, y: 0 }} // Fade out when fading
+            animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
-            className={`relative w-screen h-[90vh] z-20 ${
-              isFading ? "opacity-0" : "opacity-100"
-            }`}
+            className="relative w-screen h-[90vh] z-20"
           >
             {/* Banner content */}
+            {/* <div className="relative block top-[34%] left-[75%] h-[467px] w-[322px]">
+                <div className="absolute rounded w-full h-full inset-0 z-20"/>
+                <Image
+                    src={firstTrend?.coverImage?.extraLarge || firstTrend?.image}
+                    alt={`cover ${
+                        firstTrend?.title?.english || firstTrend?.title?.romaji
+                    }`}
+                    fill
+                    sizes="100%"
+                    quality={100}
+                    className="object-cover rounded z-10"
+                />
+              </div> */}
             <Image
-              src={
-                trendData[carouselIndex]?.bannerImage
-                  ? trendData[carouselIndex]?.bannerImage
-                  : trendData[carouselIndex]?.coverImage.extraLarge
-              }
+              src={firstTrend?.bannerImage}
               alt={`cover ${
-                trendData[carouselIndex]?.title?.english ||
-                trendData[carouselIndex]?.title?.romaji
+                firstTrend?.title?.english || firstTrend?.title?.romaji
               }`}
               width={245}
-              height={300}
+              height={300} // Adjust this value to your desired height
               priority
-              className="absolute inset-0 object-cover w-full h-full bg-blend-overlay"
-              style={{ filter: "brightness(0.3)" }} // Change brightness to x%
+              className="absolute inset-0 object-cover w-full h-full bg-blend-overlay brightness-48"
             />
 
             <motion.div
@@ -458,97 +423,59 @@ export default function Home({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0 flex flex-col lg:flex-row justify-center items-center bg-gradient-to-t from-[#12111a] to-transparent fade z-20"
+              className="absolute inset-0 flex flex-col justify-end items-start bg-gradient-to-t from-[#12111a] to-transparent fade z-20"
             >
-              {/* Left Side: Text Content */}
-              <div className="flex flex-col justify-center items-start w-full lg:w-1/2 ml-[10%]">
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-white text-2xl lg:text-3xl font-bold m-3"
-                >
-                  {trendData[carouselIndex]?.title?.english ||
-                    trendData[carouselIndex]?.title?.romaji}
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5 }}
-                  className="h-[9rem] text-white whitespace-normal overflow-hidden max-w-[600px] text-xs md:text-sm mt-5 m-5 font-normal overflow-y-auto scrollbar-none"
-                  dangerouslySetInnerHTML={{
-                    __html: trendData[carouselIndex]?.description || "",
-                  }}
-                />
-                <motion.div className="space-x-4 m-4">
-                  {trendData && (
-                    <motion.a
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.5 }}
-                      href={`/en/anime/${trendData[carouselIndex]?.id || ""}`}
-                      className="text-black px-3 py-2 text-md font-karla font-bold rounded bg-white transition-transform transform hover:scale-90"
-                    >
-                      START WATCHING
-                    </motion.a>
-                  )}
-                  {/* Navigation Buttons */}
-                  <motion.div className="flex gap-4 absolute bottom-[20%] md:bottom-[15%] left-[5%] md:left-[10%] items-center">
-                    <div
-                      className="bg-[#1e1e1e] p-2 rounded cursor-pointer"
-                      onClick={() => prevSlide()}
-                    >
-                      <ChevronLeftIcon className="w-5 h-5 text-white" />
-                    </div>
-                    {/* Circle Indicators */}
-                    <div className="flex gap-2">
-                      {trendData.map((_: any, index: number) => (
-                        <div
-                          key={index}
-                          onClick={() => manualSlide(index)}
-                          className={`w-8 h-1 rounded-full cursor-pointer ${
-                            index === carouselIndex ? "bg-white" : "bg-gray-600"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <div
-                      className="bg-[#1e1e1e] p-2 rounded cursor-pointer"
-                      onClick={() => nextSlide()}
-                    >
-                      <ChevronRightIcon className="w-5 h-5 text-white" />
-                    </div>
-                  </motion.div>
-                </motion.div>
-              </div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5 }}
+                className="text-white text-2xl lg:text-3xl font-bold m-3"
+              >
+                {firstTrend?.title?.english || firstTrend?.title?.romaji}
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5 }}
+                className="h-[8rem] text-white whitespace-normal overflow-hidden max-w-[600px] text-xs md:text-sm mt-15 m-5 font-normal overflow-y-auto scrollbar-none"
+                dangerouslySetInnerHTML={{
+                  __html: firstTrend?.description || "",
+                }}
+              />
+              <motion.div className="flex items-center space-x-4 m-4">
+                {firstTrend && (
+                  <motion.a
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.5 }}
+                    href={`/en/anime/${firstTrend?.id || ""}`}
+                    className="text-black px-3 py-2 text-md font-karla font-bold rounded bg-white transition-transform transform hover:scale-90"
+                  >
+                    START WATCHING
+                  </motion.a>
+                )}
 
-              {/* Right Side: Cover Image */}
-              <div className="flex justify-center items-center w-full lg:w-1/2">
-                <motion.a
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5 }}
-                  href={`/en/anime/${trendData[carouselIndex]?.id || ""}`}
-                  className="rounded bg-none transition-transform transform hover:scale-90"
-                >
-                  <Image
-                    src={trendData[carouselIndex]?.coverImage.extraLarge}
-                    alt={trendData[carouselIndex]?.title.english}
-                    width={500}
-                    height={500}
-                    className="hidden lg:block w-[250px] h-[350px] object-cover rounded hover:scale-105 scale-100 transition-all duration-200 ease-out"
-                  />
-                </motion.a>
-              </div>
+                {firstTrend && (
+                  <motion.a
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.5 }}
+                    href={`/en/anime/${firstTrend?.id || ""}`}
+                    className="text-black px-3 py-2 text-md font-karla font-bold rounded bg-white transition-transform transform hover:scale-90"
+                  >
+                    information
+                  </motion.a>
+                )}
+              </motion.div>
             </motion.div>
           </motion.div>
         </section>
 
-        <div>
+        <div >
           <motion.div
             className="w-screen flex-none lg:w-[95%] xl:w-[87%]"
             initial={{ opacity: 0 }}
