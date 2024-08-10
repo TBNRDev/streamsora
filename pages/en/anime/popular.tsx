@@ -123,16 +123,16 @@ export default function PopularAnime({ sessions }: PopularAnimeProps) {
               className="flex flex-col items-center w-[150px] lg:w-[180px]"
             >
               <Link
-                href={`/en/anime/${i.id}`}
-                className="p-2"
-                title={i.title.english}
+                  href={`/en/anime/${i.id}`}
+                  className="p-2"
+                  title={i.title.english || i.title.romaji}
               >
                 <Image
-                  src={i.coverImage.large}
-                  alt={i.title.english}
-                  width={500}
-                  height={500}
-                  className="w-[140px] h-[190px] lg:w-[170px] lg:h-[230px] object-cover rounded hover:scale-105 scale-100 transition-all duration-200 ease-out"
+                    src={i.coverImage.large}
+                    alt={i.title.english || i.title.romaji}
+                    width={500}
+                    height={500}
+                    className="w-[140px] h-[190px] lg:w-[170px] lg:h-[230px] object-cover rounded hover:scale-105 scale-100 transition-all duration-200 ease-out"
                 />
               </Link>
               <Link
