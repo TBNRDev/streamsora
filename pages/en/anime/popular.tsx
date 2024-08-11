@@ -62,17 +62,21 @@ export default function PopularAnime({ sessions }: PopularAnimeProps) {
         }),
       });
       const get = await res.json();
-      if (get?.data?.Page?.media?.length === 0) {
-        setNextPage(false);
-      } else if (get !== null && page > 1) {
-        setData((prevData: any) => {
-          return [...(prevData ?? []), ...get?.data?.Page?.media];
-        });
-        setNextPage(get?.data?.Page?.pageInfo.hasNextPage);
+      if (get?.data?.Page) {
+        if (get.data.Page.media.length === 0) {
+          setNextPage(false);
+        } else if (page > 1) {
+          setData((prevData: any) => {
+            return [...(prevData ?? []), ...get.data.Page.media];
+          });
+          setNextPage(get.data.Page.pageInfo.hasNextPage);
+        } else {
+          setData(get.data.Page.media);
+          setNextPage(get.data.Page.pageInfo.hasNextPage);
+        }
       } else {
-        setData(get?.data?.Page?.media);
+        setNextPage(false);
       }
-      setNextPage(get?.data?.Page?.pageInfo.hasNextPage);
       setLoading(false);
     };
     fetchData();
