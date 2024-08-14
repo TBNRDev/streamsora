@@ -5,6 +5,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { AniListInfoTypes } from "types/info/AnilistInfoTypes";
 import { Episode } from "types/api/Episode";
+import styles from "./EpisodeLists.module.css"; // Import the CSS file
 
 type EpisodeListsProps = {
   info: AniListInfoTypes;
@@ -28,7 +29,6 @@ export default function EpisodeLists({
   dub,
 }: EpisodeListsProps) {
   const progress = info.mediaListEntry?.progress;
-
   const router = useRouter();
 
   return (
@@ -74,7 +74,7 @@ export default function EpisodeLists({
           </div>
         )}
       </div>
-      <div className="flex flex-col gap-5 lg:pl-5 py-2 scrollbar-thin px-2 scrollbar-thumb-[#313131] scrollbar-thumb-rounded-full">
+      <div className="hide-scrollbar max-h-[400px] overflow-y-auto lg:pl-5 py-2 px-2 space-y-4">
         {episode && episode.length > 0 ? (
           map?.some(
             (item: any) =>
@@ -111,7 +111,6 @@ export default function EpisodeLists({
                 >
                   <div className="w-[43%] lg:w-[42%] h-[110px] relative rounded-lg z-40 shrink-0 overflow-hidden shadow-[4px_0px_5px_0px_rgba(0,0,0,0.3)]">
                     <div className="relative">
-                      {/* <div className="absolute inset-0 w-full h-full z-40" /> */}
                       <Image
                         src={parsedImage || info?.coverImage?.extraLarge}
                         draggable={false}
@@ -124,7 +123,6 @@ export default function EpisodeLists({
                             : "brightness-75"
                         }`}
                       />
-                      {/* )} */}
                       <span
                         className={`absolute bottom-0 left-0 h-[2px] bg-red-700`}
                         style={{

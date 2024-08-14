@@ -99,7 +99,7 @@ function Footer() {
                     </p>
                     <div className="flex items-center gap-5">
                         {/* Github Icon */}
-                        <Link
+                        {/* <Link
                             href="/"
                             className="w-5 h-5 hover:opacity-75"
                         >
@@ -124,7 +124,7 @@ function Footer() {
                                     </g>
                                 </g>
                             </svg>
-                        </Link>
+                        </Link> */}
                         {/* Discord Icon */}
                         <Link
                             href="https://discord.gg/FQbfNWPSJM"

@@ -150,7 +150,7 @@ export function NextEpisode({
           className={tooltipClass}
           placement={tooltipPlacement}
         >
-          Next Episode
+         holeNext Episode
         </Tooltip.Content>
       </Tooltip.Root>
     )

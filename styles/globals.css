@@ -20,12 +20,53 @@ html {
 
 body {
   @apply bg-primary scrollbar-hide text-txt;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 4px;
+  background-color: #767676;
+}
+
+::-webkit-scrollbar-track{
+  background-color: rgb(0, 0, 0);
 }
 
 @layer components {
   .flex-center {
     @apply flex justify-center items-center;
   }
+}
+
+.hide-scrollbar {
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
 /* disqus style */

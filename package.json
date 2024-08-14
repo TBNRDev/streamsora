@@ -40,6 +40,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-loading-skeleton": "^3.2.0",
+    "react-swipeable": "^7.0.1",
     "react-use-draggable-scroll": "^0.4.7",
     "sharp": "^0.32.6",
     "sonner": "^1.0.3",

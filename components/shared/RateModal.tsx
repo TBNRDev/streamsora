@@ -1,7 +1,7 @@
-import {useAniList} from "@/lib/anilist/useAnilist";
-import {useWatchProvider} from "@/lib/context/watchPageProvider";
-import {useState} from "react";
-import {toast} from "sonner";
+import { useAniList } from "@/lib/anilist/useAnilist";
+import { useWatchProvider } from "@/lib/context/watchPageProvider";
+import { useState } from "react";
+import { toast } from "sonner";
 
 type Props = {
     toggle: boolean;
@@ -11,15 +11,15 @@ type Props = {
 };
 
 export default function RateModal({
-                                      toggle,
-                                      position,
-                                      setToggle,
-                                      session,
-                                  }: Props) {
+    toggle,
+    position,
+    setToggle,
+    session,
+}: Props) {
     const [startRate, setStartRate] = useState(false);
-    const {markComplete} = useAniList(session);
+    const { markComplete } = useAniList(session);
 
-    const {dataMedia} = useWatchProvider();
+    const { dataMedia } = useWatchProvider();
 
     async function handleSubmit(event: any) {
         event.preventDefault();
@@ -27,7 +27,7 @@ export default function RateModal({
         const rating = data.get("rating");
         const notes = data.get("notes");
         try {
-            await markComplete(dataMedia?.id, {notes, scoreRaw: rating});
+            await markComplete(dataMedia?.id, { notes, scoreRaw: rating });
             toast.success("Successfully rated!");
             setToggle((prev: any) => {
                 return {
@@ -52,33 +52,29 @@ export default function RateModal({
     return (
         <>
             <div
-                className={`w-full h-[20dvh] fixed bg-gradient-to-${
-                    position === "top"
+                className={`w-full h-[20dvh] fixed bg-gradient-to-${position === "top"
                         ? `b top-0 from-black/20`
                         : "t -bottom-5 from-black/40"
-                } to-transparent z-10 transition-all duration-200 ease-in-out ${
-                    toggle ? "" : "opacity-0 pointer-events-none"
-                }`}
+                    } to-transparent z-10 transition-all duration-200 ease-in-out ${toggle ? "" : "opacity-0 pointer-events-none"
+                    }`}
             />
             <div
-                style={{width: startRate ? "300px" : "240px"}}
-                className={`${
-                    position === "top"
+                style={{ width: startRate ? "300px" : "240px" }}
+                className={`${position === "top"
                         ? toggle
                             ? `top-5`
                             : `-top-48`
                         : toggle
                             ? `bottom-10`
                             : `-bottom-48`
-                } fixed text-white font-semibold z-50 font-karla transition-all duration-300 ease-in-out left-1/2 transform -translate-x-1/2 bg-secondary p-3 rounded flex flex-col justify-center items-center gap-4`}
+                    } fixed text-white font-semibold z-50 font-karla transition-all duration-300 ease-in-out left-1/2 transform -translate-x-1/2 bg-secondary p-3 rounded flex flex-col justify-center items-center gap-4`}
             >
                 <p className="text-lg">What do you think?</p>
                 <div
-                    className={`flex gap-2 font-medium text-center transition-all duration-200 ${
-                        startRate
+                    className={`flex gap-2 font-medium text-center transition-all duration-200 ${startRate
                             ? "scale-50 hidden pointer-events-none"
                             : "scale-100 opacity-100"
-                    }`}
+                        }`}
                 >
                     <button
                         onClick={() => setStartRate(true)}

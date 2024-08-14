@@ -1,5 +1,5 @@
 import {MagnifyingGlassIcon} from "@heroicons/react/20/solid";
-import {CalendarIcon, HomeIcon} from "@heroicons/react/24/outline";
+import {CalendarIcon, HomeIcon , BookOpenIcon ,ExclamationTriangleIcon} from "@heroicons/react/24/outline";
 import {signIn, signOut, useSession} from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -100,6 +100,30 @@ export default function MobileNav({hideProfile = false}: MobileNavProps) {
                                     className="font-karla font-bold text-white/60 group-hover:text-action"
                                 >
                                     search
+                                </Link>
+                            </button>
+                            <button className="group flex gap-[1px] flex-col items-center">
+                                <Link href="/en/search/anime">
+                                    <ExclamationTriangleIcon className="w-6 h-6 group-hover:text-action"/>
+                                </Link>
+
+                                <Link
+                                    href="/en/hanime/hentai"
+                                    className="font-karla font-bold text-white/60 group-hover:text-action"
+                                >
+                                    Hanime
+                                </Link>
+                            </button>
+                            <button className="group flex gap-[1px] flex-col items-center">
+                                <Link href="/en/search/anime">
+                                    <BookOpenIcon className="w-6 h-6 group-hover:text-action"/>
+                                </Link>
+
+                                <Link
+                                    href="/en/search/manga"
+                                    className="font-karla font-bold text-white/60 group-hover:text-action"
+                                >
+                                    Manga
                                 </Link>
                             </button>
                             {sessions ? (

@@ -20,7 +20,7 @@ export default function SearchByImage({
 
   async function findImage(formData: FormData) {
     const response = new Promise((resolve, reject) => {
-      fetch("https://api.trace.moe/search?anilistInfo", {
+      fetch("https://api.trace.moe/search?anilistInfo&url=", {
         method: "POST",
         body: formData,
       })

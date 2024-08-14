@@ -3,65 +3,31 @@ import Link from "next/link";
 import {Fragment, useEffect, useRef, useState} from "react";
 
 const web = {
-    version: "v4.5.2"
+    version: "v5.0.0"
 };
 
 const logs = [
     {
-        version: "v4.5.2",
+        version: "v5.0.0",
         pre: false,
         notes: null,
         highlights: true,
         changes: [
-            "Streamsora is now Kaizoku",
-            "New player layout for mobile devices",
-            "Added seek buttons in the player",
-            "Added Hanime watching",
-            "Added Server status",
-            "Added Statistics",
-            "Added previous and next episode buttons in the player",
-            "Added rate modal when user finished watching the whole series",
-            "Fix: only half of the episodes has episodes thumbnail",
-            "Fix: pressing back button in anime info page redirects user to the wrong page",
-            "Progressively migrate codebase to typescript"
+            "made episodes tab during watching an anime more accessible",
+            "Fixed the player issues",
+            "added planning watching",
+            "added hanime on navbar  ",
+            "Removed annoying scrollbar",
+            "update ui home page",
+            "Added manga search ",
+            "Added latest upcomming next",
+            "centered the alignment",
+            "Added fix to japanese page of the website",
+            "fixed search by image",
+            "Any many more"
         ]
     }
-    // {
-    //   version: "v4.4.0",
-    //   pre: false,
-    //   notes: null,
-    //   highlights: false,
-    //   changes: [
-    //     "Added rate modal when user finished watching the whole series",
-    //     "Fix: only half of the episodes has episodes thumbnail",
-    //     "Fix: pressing back button in anime info page redirects user to the wrong page",
-    //     "Progressively migrate codebase to typescript"
-    //   ]
-    // }
-    // {
-    //   version: "v4.3.1",
-    //   pre: true,
-    //   notes: null,
-    //   highlights: false,
-    //   changes: [
-    //     "Fix: Auto Next Episode forcing to play sub even if dub is selected",
-    //     "Fix: Episode metadata not showing after switching to dub",
-    //     "Fix: Profile picture weirdly cropped",
-    //     "Fix: Weird padding on the navbar in profile page",
-    //   ],
-    // },
-    // {
-    //   version: "v4.3.0",
-    //   pre: true,
-    //   notes: null,
-    //   highlights: false,
-    //   changes: [
-    //     "Added changelogs section",
-    //     "Added recommendations based on user lists",
-    //     "New Player!",
-    //     "And other minor bug fixes!",
-    //   ],
-    // },
+
 ];
 
 export default function ChangeLogs() {
